@@ -37,19 +37,27 @@
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
         <task id="57" name="Point Cloud" color="#33ffff" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
-            <task id="0" name="Identify lidar’s capabilities" color="#66ffff" meeting="false" start="2019-09-09" duration="22" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
+            <task id="0" name="Identify lidar’s capabilities" color="#66ffff" meeting="false" start="2019-09-09" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
                 <depend id="2" type="2" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="12" name="Identify functionalities in ROS that would be helpful for mapping" color="#33ffff" meeting="false" start="2019-09-09" duration="21" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
+            <task id="12" name="Identify functionalities in ROS that would be helpful for mapping" color="#33ffff" meeting="false" start="2019-09-09" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
                 <depend id="2" type="2" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="135" name="Identify robustness towards lighting and characteristics of the environment" color="#33ffff" meeting="false" start="2019-09-09" duration="21" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
-            <task id="2" name="Data retriveval from LIDAR" color="#33ffff" meeting="false" start="2019-10-09" duration="23" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
-            <task id="7" name="ROS reading of all the sensors" color="#33ffff" meeting="false" start="2019-10-09" duration="23" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
-            <task id="18" name="Setting of the 2D lidar based mapping for real time execution" color="#33ffff" meeting="false" start="2019-10-15" duration="25" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true"/>
-            <task id="29" name="Setting of the visual point cloud for real time execution" color="#33ffff" meeting="false" start="2019-10-15" duration="59" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+            <task id="2" name="Data retriveval from LIDAR" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
+            <task id="7" name="ROS reading of all the sensors" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
+            <task id="136" name="Data handling" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true">
+                <depend id="138" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="135" name="Identify robustness towards lighting and characteristics of the environment" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+            <task id="138" name="Sending data to central" color="#33ffff" meeting="false" start="2019-10-21" duration="11" complete="0" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true">
+                <depend id="18" type="2" difference="0" hardness="Strong"/>
+                <depend id="140" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="140" name="Send data to units" color="#33ffff" meeting="false" start="2019-11-05" duration="25" complete="0" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true"/>
+            <task id="18" name="Setting of the 2D lidar based mapping for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true"/>
+            <task id="29" name="Setting of the visual point cloud for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
         </task>
         <task id="59" name="Data processing" color="#f400ff" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true">
             <task id="30" name="Cartographer implementation for a robot" color="#ff00ff" meeting="false" start="2019-09-09" duration="14" complete="0" thirdDate="2019-09-09" thirdDate-constraint="1" expand="true">
@@ -117,6 +125,9 @@
         <allocation task-id="18" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="29" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="135" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="136" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="138" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="140" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="2" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="7" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
@@ -125,6 +136,9 @@
         <allocation task-id="29" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="35" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="135" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="136" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="138" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="140" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="66" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="89" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="99" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
@@ -172,6 +186,15 @@
         <allocation task-id="51" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="45" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="116" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="0" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="12" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="135" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="2" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="136" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="138" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="140" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="29" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
