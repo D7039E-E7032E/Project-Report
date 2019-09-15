@@ -1,18 +1,32 @@
 @startuml
-
-
+hide empty description
 'https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html'    
 'https://youtu.be/IH_n9bfy-nM?t=958'
-skinparam monochrome reverse
+skinparam Monochrome true
 
-[*] --> cargographer : scan
-cargographer --> map
-map : Generate submap
-map --> server
+[*] --> Robot
+state Robot {
+    [*] --> Lidar
+    Lidar --> Cartographer : 2D scan
+    state Cartographer {
+        [*] -> localSLAM
+        localSLAM -> globalSLAM
+    }
+    state Navigation {
 
-note right of map 
-    Occupancy grid
-end note
+    }
+
+
+    
+}
+
+globalSLAM --> Base_Station : WIFI
+
+state Base_Station {
+    [*] -> mapMerge
+    mapMerge --> Navigation : WIFI
+}
+
 
 @enduml
     
