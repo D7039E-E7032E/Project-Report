@@ -1,0 +1,18 @@
+@startuml
+
+
+'https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html'    
+'https://youtu.be/IH_n9bfy-nM?t=958'
+skinparam monochrome reverse
+
+[*] --> cargographer : scan
+cargographer --> map
+map : Generate submap
+map --> server
+
+note right of map 
+    Occupancy grid
+end note
+
+@enduml
+    
