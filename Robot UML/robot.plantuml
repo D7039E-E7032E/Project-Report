@@ -1,0 +1,32 @@
+@startuml
+hide empty description
+'https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html'    
+'https://youtu.be/IH_n9bfy-nM?t=958'
+skinparam Monochrome true
+
+[*] --> Robot
+state Robot {
+    [*] --> Lidar
+    Lidar --> Cartographer : 2D scan
+    state Cartographer {
+        [*] -> localSLAM
+        localSLAM -> globalSLAM
+    }
+    state Navigation {
+
+    }
+
+
+    
+}
+
+globalSLAM --> Base_Station : WIFI
+
+state Base_Station {
+    [*] -> mapMerge
+    mapMerge --> Navigation : WIFI
+}
+
+
+@enduml
+    
