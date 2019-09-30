@@ -34,7 +34,7 @@ Cartographer contains two SLAMs, one local SLAM and one global SLAM. The local S
 
 ### Central station
 <p>
-  Since we'll be having multiple robots gathering data it would be useful to have a central station. This comes with ROS or more precise roscore command. Also called ros master and its role's to look over the other active nodes and help them locate each other. This ROS master also comes with a parameter server which will store and retrive parameters from nodes. This parameters are XMLRPC data types which is XML equivalents of common data types.
+In this case Central station is the ros master. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrive parameters from nodes. This parameters are XMLRPC data types which is XML equivalents of common data types.
 
   
 </p>
