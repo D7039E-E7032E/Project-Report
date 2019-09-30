@@ -27,7 +27,7 @@ The LIDAR will gather all the data used to map the environment. Since the LIDAR 
 
 ### Cartographer
 <p>
-<a href="https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html">Cartographer</a> is an algorithm/system used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, <a href="https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping">SLAM</a> is the main part. 
+Cartographer is an algorithm/system used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM is the main part. 
 
 Cartographer contains two SLAMs, one local SLAM and one global SLAM. The local SLAM is to generate approved submaps with correct scans(range data) and the global is reconstruct everything together and creating a global map. Global map can then be used to visually represent the environment.
 </p>
