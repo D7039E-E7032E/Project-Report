@@ -18,6 +18,25 @@ On the top of it there's a 360 Laser Distance Sensor LDS-01 LIDAR, that is going
 
 ### The controller
 <p>
+The software that will visualise what the robot experiences is RViz. This software will also be chosen because of its tight integration with the ROS framework.
+A Turtlebot 3 Burger will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
+</p>
+
+<p>
+The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the Turtlebot 3 Burger will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visiualised using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
+</p>
+
+<p>
+The software Gazebo will make use of a file format called Simulation Description Format (SDF). SDF was developed to solve the shortcomings of URDF. SDF specifies such as friction, lights, heightmaps and more. Another improvement is that SDF does not break proper formatting with heavy use of XML attributes and is thus more flexible in its implementation. 
+It is also possible to convert URDF into SDF. This lets an URDF file to be used with Gazebo after it has been converted to SDF.
+</p>
+
+<p>
+ROS makes uses of topics to send messages from a publisher to a subscriber. ROS will publish visualisation messages which RViz will subscribe to and simulation messages will be subscribed to by Gazebo. Gazebo will publish simulation messages which ROS will subscribe to and then publish. Rviz will subscribe to topics that are specified within RViz, such as a camera. A camera will be added to the Turtlebot 3 Burger URDF file. This will cause the ROS to publish a camera feed topic which RViz will subscribe to, allowing for camera feed visualisation. This already works with the LIDAR. 
+</p>
+
+<p>
+The aim of the simulation is to be able to publish a service call containing a message of a 2D coordinate point and have the simulated Turtlebot 3 Burger navigate towards this 2D coordinate point using the move_base package that is provided within ROS. The 2D coordinate point sent by service call will hereby be referred to as a waypoint. The package move_base provides a vast range of solutions for navigating a robot to a given goal point. This package will be used to define the waypoint navigation for the Turtlebot 3 Burger. It provides strategies for planning navigation and seeing the ongoing execution of the plan.
 </p>
 
 ### Data gathering
