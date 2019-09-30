@@ -38,6 +38,13 @@ Cartographer contains two SLAMs, one local SLAM and one global SLAM. The local S
 
 ### Workflow and Git
 <p>
+When researching, the main points of the read article should be written down in the WIKI, this in case someone else has to read up on the same thing. This means that they will not have to read the whole article to learn the main points, also if any important commands are included they will be written down with a description of what they do.
+  
+In Git there is a strict workflow, nobody is allowed to push to the master branch for example, the master branch is set to being protected which means that the only way to add to it is by making new branches and creating pull requests. These pull requests have to be reviewed by at least two people who if everything is good will approve the pull request. When the pull request has two approved reviews it can be rebased and merged with the master branch.
+There is also an agreed upon structure to the branch names where the name must describe loosely what they are for, for example a branch named "patch-1" does not tell you a lot, instead if you were to call it "#XX Implementing Cartographer" you can first see the issue related to the branch and then an extremely short description of what the branch is used for.
+In the group Oscar will be in charge of making sure the Github is working correctly, that everyone is following the agreed upon structure.
+
+To build the entire system the plan at the moment is to use Jenkins, this is an open-source continious integration program which means it is not directly used to build the system but plugins can be used to add a build functionality depending on the language used. Jenkins is also a testing and reporting platform which means that it can automatically test the code after it is built.
 </p>
 
 ## Results
