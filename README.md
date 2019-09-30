@@ -34,7 +34,7 @@ Cartographer contains two SLAMs, one local SLAM and one global SLAM. The local S
 
 ### Central station
 <p>
-In this case Central station is the ros master. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrive parameters from nodes. This parameters are XMLRPC data types which is XML equivalents of common data types.
+In this case Central station is the ROS master. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrive parameters from nodes. This parameters are XMLRPC data types which is XML equivalents of common data types.
 
   
 </p>
