@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-08-11" view-index="0" gantt-divider-location="331" resource-divider-location="300" version="2.8.10" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-08-25" view-index="0" gantt-divider-location="331" resource-divider-location="300" version="2.8.10" locale="en_US">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Name" width="152" order="0"/>
-        <field id="tpd4" name="Begin date" width="65" order="1"/>
-        <field id="tpd5" name="End date" width="95" order="2"/>
-        <option id="taskLabelUp" value="name"/>
-        <option id="taskLabelDown" value="resources"/>
-        <option id="color.recent"><![CDATA[#33ffff #f400ff #ff9900 #009966 #ff00ff #66ffff]]></option>
+        <field id="tpd3" name="Name" width="157" order="0"/>
+        <field id="tpd4" name="Begin date" width="70" order="1"/>
+        <field id="tpd5" name="End date" width="100" order="2"/>
+        <option id="color.recent">
+            <![CDATA[#f400ff #33ffff #ff9900 #009966 #ff00ff #66ffff]]>
+        </option>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="210" order="0"/>
@@ -60,11 +60,13 @@
             <task id="29" name="Setting of the visual point cloud for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
         </task>
         <task id="59" name="Data processing" color="#f400ff" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true">
-            <task id="30" name="Cartographer implementation for a robot" color="#ff00ff" meeting="false" start="2019-09-09" duration="14" complete="0" thirdDate="2019-09-09" thirdDate-constraint="1" expand="true">
+            <task id="30" name="Cartographer implementation for a robot" color="#ff00ff" meeting="false" start="2019-09-09" duration="24" complete="0" thirdDate="2019-09-09" thirdDate-constraint="1" expand="true">
                 <depend id="43" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="43" name="Build occupancy map for one robot" color="#f400ff" meeting="false" start="2019-09-27" duration="14" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true"/>
-            <task id="55" name="Experimental demonstration of the single agent case" color="#f400ff" meeting="false" start="2019-10-15" duration="10" complete="0" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="148" name="Cartographer reading" color="#f400ff" meeting="false" start="2019-09-23" duration="7" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+            <task id="157" name="Testing Cartographer" color="#f400ff" meeting="false" start="2019-09-30" duration="10" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+            <task id="43" name="Build occupancy map for one robot" color="#f400ff" meeting="false" start="2019-10-11" duration="7" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true"/>
+            <task id="55" name="Experimental demonstration of the single agent case" color="#f400ff" meeting="false" start="2019-10-14" duration="14" complete="0" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
             <task id="37" name="Identify if the merging should take place in a base station" color="#f400ff" meeting="false" start="2019-10-29" duration="4" complete="0" thirdDate="2019-09-11" thirdDate-constraint="0" expand="true"/>
             <task id="41" name="Identify visual based 3D mapping for real time execution)" color="#f400ff" meeting="false" start="2019-11-04" duration="4" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true"/>
             <task id="51" name="Stitch/merge multiple occupancy maps" color="#f400ff" meeting="false" start="2019-11-08" duration="10" complete="0" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
@@ -73,8 +75,10 @@
         </task>
         <task id="63" name="Pathfinding" color="#ff9900" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
             <task id="66" name="Path following" color="#ff9900" meeting="false" start="2019-09-09" duration="7" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
-                <notes><![CDATA[
-]]></notes>
+                <notes>
+                    <![CDATA[
+]]>
+                </notes>
                 <depend id="69" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="69" name="Path planing" color="#ff9900" meeting="false" start="2019-09-18" duration="32" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
@@ -158,6 +162,7 @@
         <allocation task-id="51" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="55" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="116" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="148" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="30" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="37" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="41" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
@@ -166,6 +171,7 @@
         <allocation task-id="51" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="55" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="116" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="148" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="35" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="66" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="89" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
@@ -195,6 +201,7 @@
         <allocation task-id="140" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="18" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="29" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="148" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
