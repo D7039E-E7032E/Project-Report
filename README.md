@@ -1,29 +1,4 @@
-# Collaborative mapping of unknown environments
-
-## Introduction 
-<p>
-Unknown subterranial areas holds a certain risk for humans to discover and survey. Utilizing modern day technology within robotics, one can minimize these risks.<br>
-This project is constructed around this problem, and the goal is to develop software for existing robots to collaborate and map unknown areas such as tunnels and caves. Working on this project is a team of seven students from the Luleå University of Technology. Each student with a background in Computer Science, Electrical Engineering and Control theory.
-</p>
-
-## Method
-
-### The Turtlebot
-<p>
-A Turtlebot 3 Burger is going to be used to solve the given problem, this is mainly because it was provided by the Luleå University of Technology but also due to it's size and components that follows with it.
-</p>
-<p>
-On the top of it there's a 360 Laser Distance Sensor LDS-01 LIDAR, that is going to be used for gathering coordinate points of the surroundings. The LIDAR is connected to a Raspberry Pi 3 Model B, which is going to do all the computing on the Turtlebot. This includes packaging, sending the gathered data to a central station and make sure that the Turtlebot is not exploring an area that it or another Turtlebot has already explored. The Raspberry Pi should also create a personal map with the points that the Turtlebot has gathered. The Raspberry Pi is connected to a OpenCR1.0 board that is going to control the motors and actuators of the wheels.
-</p>
-
-### The controller
-<p>
-The software that will visualise what the robot experiences is RViz. This software will also be chosen because of its tight integration with the ROS framework.
-A Turtlebot 3 Burger will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
-</p>
-
-<p>
-The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the Turtlebot 3 Burger will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visiualised using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
+URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
 </p>
 
 <p>
