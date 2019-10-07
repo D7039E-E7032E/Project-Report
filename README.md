@@ -69,7 +69,7 @@ In this case Central station is the ROS master. Its role is to look over the oth
 # Appendices
 
 ## Gantt Schedule
-[Gantt Schedule](ProjectPlan.gan)
+[Gantt Schedule](https://htmlpreview.github.io/?https://raw.githubusercontent.com/D7039E-E7032E/Project-Report/master/ProjectPlan-chart.html)
 
 ### Workflow and Git
 <p>
