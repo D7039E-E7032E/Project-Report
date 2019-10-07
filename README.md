@@ -77,7 +77,7 @@ When researching, the main points of the read article should be written down in 
   
 In Git there is a strict workflow, nobody is allowed to push to the master branch for example, the master branch is set to being protected, which means that the only way to add to it is by making new branches and creating pull requests. These pull requests have to be reviewed by at least two people, who if everything is good, will approve the pull request. When the pull request has two approved reviews it can be rebased and merged with the master branch.
 There is also an agreed upon structure to the branch names where the name must describe loosely what they are for, for example a branch named "patch-1" does not explain a lot, instead if it was called "#XX Implementing Cartographer". It first describes the issue related to the branch, and then an extremely short description of what the branch is used for.
-![Git Workflow](https://github.com/D7039E-E7032E/Project-Report/blob/oscrim-GitWorkflowImage/images/GitWorkflow.png)
+![Git Workflow](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/GitWorkflow.png)
 
 To build the entire system the plan at the moment is to use Jenkins, this is an open-source continious integration program which means it is not directly used to build the system, but plugins can be used to add a build functionality depending on the language used. Jenkins is also a testing and reporting platform which means that it can automatically test the code after it is built.
 </p>
