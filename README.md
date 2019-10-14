@@ -43,6 +43,10 @@ ROS makes use of topics to send messages from a publisher to a subscriber. ROS w
 The simulation aims to be able to publish a service call containing a message of a 2D coordinate point and have the simulated Turtlebot 3 Burger navigate towards this 2D coordinate point using the move_base package that is provided within ROS. The 2D coordinate point sent by service call will hereby be referred to as a waypoint. The package move_base provides a vast range of solutions for navigating a robot to a given goal point. This package will be used to define the waypoint navigation for the Turtlebot 3 Burger. It provides strategies for planning navigation and seeing the ongoing execution of the plan.
 </p>
 
+
+  The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control) to make sure the Turtlebot 3 Burger is staying on the path in the physical world.
+
+
 ### Data gathering
 <p>
 The LIDAR will gather all the data used to map the environment. Since the LIDAR is not fully accurate a filter of some sort must be implemented to check which points are useful. After the raw data points have been filtered they will be packaged and sent to the central station. The packages will also be cached in the Raspberry Pi for verification that the central station has received the packages. After the packages have been verified they will be removed from the Raspberry Pi.
@@ -94,5 +98,9 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 
 ## Links
 <p>
-  <a href="https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html">Cartographer</a>  
+  
+  <a href="https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html">Cartographer</a>
+</p>
+<p>
+<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
 </p>
