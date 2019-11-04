@@ -10,7 +10,7 @@ This project is constructed around this problem, and the goal is to develop soft
 
 ### The Turtlebot
 <p>
-A Turtlebot 3 Burger is going to be used to solve the given problem, this is mainly because it was provided by the Luleå University of Technology but also due to its size and components that follow with it.
+A Turtlebot 3 Burger was the hardware selected to solve the given problem, this is mainly because it was provided by the Luleå University of Technology but also due to its size and components that follow with it.
 </p>
 <p>
 On top of it, there's a 360 Laser Distance Sensor LDS-01 LIDAR, that is going to be used for gathering coordinate points of the surroundings. The LIDAR is connected to a Raspberry Pi 3 Model B, which is going to do all the computing on the Turtlebot. This includes packaging, sending the gathered data to a central station and make sure that the Turtlebot is not exploring an area that it or another Turtlebot has already explored. The Raspberry Pi should also create a personal map with the points that the Turtlebot has gathered. The Raspberry Pi is connected to an OpenCR1.0 board that is going to control the motors and actuators of the wheels.
@@ -49,7 +49,7 @@ The simulation aims to be able to publish a service call containing a message of
 
 ### Data gathering
 <p>
-The LIDAR will gather all the data used to map the environment. Since the LIDAR is not fully accurate a filter of some sort must be implemented to check which points are useful. After the raw data points have been filtered they will be packaged and sent to the central station. The packages will also be cached in the Raspberry Pi for verification that the central station has received the packages. After the packages have been verified they will be removed from the Raspberry Pi.
+The LIDAR was used to gather all the data used to map the environment. Since the LIDAR is not fully accurate a filter of some sort must be implemented to check which points are useful. After the raw data points have been filtered they were packaged and sent to the central station. The packages are also  cached in the Raspberry Pi for verification that the central station has received the packages. After the packages have been verified they are removed from the Raspberry Pi.
 </p>
 
 ### Cartographer
@@ -93,7 +93,7 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 
 ## Meeting protocol
 <p>
-  <a href="https://drive.google.com/open?id=1PeUxJ5jHCUijahTg3dwKI38IQUg2Elm8">This folder</a> contains all the meeting protocols.
+  All the meeting protocols can be found<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Meeting-protocols">here</a>.
 </p>
 
 ## Links
