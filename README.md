@@ -2,7 +2,7 @@
 
 ## Introduction 
 <p>
-Unknown subterranean areas hold a certain risk for humans to discover and survey. To minimize this risk one can apply the use of modern-day technology of robotics. By sending in a ground moving robot that scans the subterranean areas and then relays the scanned data back to base hub, would allow workers to more safely traverse these previously unknown areas.
+Unknown subterranean areas hold a certain risk for humans to discover and survey. To minimize this risk one can apply the use of modern-day technology of robotics. By sending in a ground moving robot that scans the subterranean areas and then relay the scanned data back to base hub, would allow workers to more safely traverse these previously unknown areas.
 This is the base for the project, and the goal is to develop software that can be applied to existing ground moving robots. This software should allow the robot to collaborate and map unknown areas such as caves and tunnels. The team assigned to the project consisted of seven students from the Luleå University of Technology. Each student with a background in Computer Science, Electrical Engineering and Control theory. The project lasted for a span of 20 weeks, with weekly progress updates and meetings scheduled.
 </p>
 
@@ -10,11 +10,11 @@ This is the base for the project, and the goal is to develop software that can b
 
 ### The Turtlebot
 <p>
-The robotic hardware used for the project was a Turtlebot 3 Burger, provided by the robotics department within Luleå University of Technology for it's size and the components.
+The robotic hardware used for the project was a Turtlebot 3 Burger, provided by the robotics department within Luleå University of Technology for its size and the components.
 The Turtlebots layout consisted of 4 stacked layers, each with their own set of components. The first (base) layer held the two DYNAMIXEL XL430-W250 actuators, and a slot for the lithium polymer battery. By having two actuators the Turtlebot would be able to traverse at a higher speed with less stress, and gain more freedom during turns.
-The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. It's main purpose was to control the actuators for the Turtlebot, but it also help the power switch and distribution for the system.
+The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. Its main purpose was to control the actuators for the Turtlebot, but it also help the power switch and distribution for the system.
 The third layer held the brain of the system, the Raspberry Pi 3 Model B. The Raspberry Pi was installed with a Ubuntu MATE 18.04 operating system, which handled the backend software for sending the robots gathered data to the central station, and the navigation system, which made sure that the robot did explore an already explored area.
-On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor LDS-01 LiDAR. The LiDAR constantly scanned and gathered data about it's surroundings which were sent down to the Raspberry Pi for processing.
+On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor LDS-01 LiDAR. The LiDAR constantly scanned and gathered data about its surroundings which were sent down to the Raspberry Pi for processing.
 </p>
 
 ### The controller
@@ -50,7 +50,7 @@ The simulation aims to be able to publish a service call containing a message of
 
 ### Data gathering
 <p>
-The LIDAR was used to gather all the data used to map the environment. The raw data was processed by the Cartographer software within the Raspberry Pi, to generate a temporary map file and an accessory data file to the map. These two files were then sent onward to the central station.
+The LIDAR was used to gather all the data used to map the environment. The raw data was processed by the Cartographer algorithm within the Raspberry Pi, to generate a temporary map file and an accessory data file to the map. These two files were then sent onward to the central station.
 </p>
 
 ### Cartographer
