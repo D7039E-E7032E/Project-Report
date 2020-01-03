@@ -2,18 +2,19 @@
 
 ## Introduction 
 <p>
-Unknown subterranean areas hold a certain risk for humans to discover and survey. Utilizing modern-day technology within robotics, one can minimize these risks.
-This project is constructed around this problem, and the goal is to develop software for existing robots to collaborate and map unknown areas such as tunnels and caves. Working on this project is a team of seven students from the Luleå University of Technology. Each student with a background in Computer Science, Electrical Engineering and Control theory.
+Unknown subterranean areas hold a certain risk for humans to discover and survey. To minimize this risk one can apply the use of modern-day technology of robotics. By sending in a ground moving robot that scans the subterranean areas and then relay the scanned data back to base hub, would allow workers to more safely traverse these previously unknown areas.
+This is the base for the project, and the goal is to develop software that can be applied to existing ground moving robots. This software should allow the robot to collaborate and map unknown areas such as caves and tunnels. The team assigned to the project consisted of seven students from the Luleå University of Technology. Each student with a background in Computer Science, Electrical Engineering and Control theory. The project lasted for a span of 20 weeks, with weekly progress updates and meetings scheduled.
 </p>
 
 ## Method
 
 ### The Turtlebot
 <p>
-A Turtlebot 3 Burger was the hardware selected to solve the given problem, this is mainly because it was provided by the Luleå University of Technology but also due to its size and components that follow with it.
-</p>
-<p>
-On top of it, there's a 360 Laser Distance Sensor LDS-01 LIDAR, that is going to be used for gathering coordinate points of the surroundings. The LIDAR is connected to a Raspberry Pi 3 Model B, which is going to do all the computing on the Turtlebot. This includes packaging, sending the gathered data to a central station and make sure that the Turtlebot is not exploring an area that it or another Turtlebot has already explored. The Raspberry Pi should also create a personal map with the points that the Turtlebot has gathered. The Raspberry Pi is connected to an OpenCR1.0 board that is going to control the motors and actuators of the wheels.
+The robotic hardware used for the project was a Turtlebot 3 Burger, provided by the robotics department within Luleå University of Technology for its size and the components.
+The Turtlebots layout consisted of 4 stacked layers, each with their own set of components. The first (base) layer held the two DYNAMIXEL XL430-W250 actuators, and a slot for the lithium polymer battery. By having two actuators the Turtlebot would be able to traverse at a higher speed with less stress, and gain more freedom during turns.
+The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. Its main purpose was to control the actuators for the Turtlebot, but it also help the power switch and distribution for the system.
+The third layer held the brain of the system, the Raspberry Pi 3 Model B. The Raspberry Pi was installed with a Ubuntu MATE 18.04 operating system, which handled the backend software for sending the robots gathered data to the central station, and the navigation system, which made sure that the robot did explore an already explored area.
+On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor LDS-01 LiDAR. The LiDAR constantly scanned and gathered data about its surroundings which were sent down to the Raspberry Pi for processing.
 </p>
 
 ### The controller
@@ -49,7 +50,7 @@ The simulation aims to be able to publish a service call containing a message of
 
 ### Data gathering
 <p>
-The LIDAR was used to gather all the data used to map the environment. Since the LIDAR is not fully accurate a filter of some sort must be implemented to check which points are useful. After the raw data points have been filtered they were packaged and sent to the central station. The packages are also  cached in the Raspberry Pi for verification that the central station has received the packages. After the packages have been verified they are removed from the Raspberry Pi.
+The LIDAR was used to gather all the data used to map the environment. The raw data was processed by the Cartographer algorithm within the Raspberry Pi, to generate a temporary map file and an accessory data file to the map. These two files were then sent onward to the central station.
 </p>
 
 ### Cartographer
