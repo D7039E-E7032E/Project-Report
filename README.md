@@ -10,9 +10,9 @@ This is the base for the project, and the goal is to develop software that can b
 
 ### The Turtlebot
 <p>
-The robotic hardware used for the project was a Turtlebot 3 Burger, provided by the robotics department within Luleå University of Technology for its size and the components.
-The Turtlebots layout consisted of 4 stacked layers, each with their own set of components. The first (base) layer held the two DYNAMIXEL XL430-W250 actuators, and a slot for the lithium polymer battery. By having two actuators the Turtlebot would be able to traverse at a higher speed with less stress, and gain more freedom during turns.
-The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. Its main purpose was to control the actuators for the Turtlebot, but it also help the power switch and distribution for the system.
+The robotic hardware used for the project was a Turtlebot 3 Burger (TB3B), provided by the robotics department within Luleå University of Technology for its size and the components.
+The TB3B layout consisted of 4 stacked layers, each with their own set of components. The first (base) layer held the two DYNAMIXEL XL430-W250 actuators, and a slot for the lithium polymer battery. By having two actuators the TB3B would be able to traverse at a higher speed with less stress, and gain more freedom during turns.
+The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. Its main purpose was to control the actuators for the TB3B, but it also help the power switch and distribution for the system.
 The third layer held the brain of the system, the Raspberry Pi 3 Model B. The Raspberry Pi was installed with a Ubuntu MATE 18.04 operating system, which handled the backend software for sending the robots gathered data to the central station, and the navigation system, which made sure that the robot did explore an already explored area.
 On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor LDS-01 LiDAR. The LiDAR constantly scanned and gathered data about its surroundings which were sent down to the Raspberry Pi for processing.
 </p>
@@ -24,11 +24,11 @@ On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor
 ### The simulator
 <p>
 The software that will visualize what the robot experiences is RViz. This software will also be chosen because of its tight integration with the ROS framework.
-A Turtlebot 3 Burger will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
+A TB3B will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
 </p>
 
 <p>
-The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the Turtlebot 3 Burger will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visualized using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
+The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visualized using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
 </p>
 
 <p>
