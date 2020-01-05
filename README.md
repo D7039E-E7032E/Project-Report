@@ -19,6 +19,7 @@ On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor
 
 ### The controller
 <p>
+The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control) to make sure the Turtlebot 3 Burger is staying on the path in the physical world.
 </p>
 
 ### The simulator
@@ -43,10 +44,6 @@ ROS makes use of topics to send messages from a publisher to a subscriber. ROS w
 <p>
 The simulation aims to be able to publish a service call containing a message of a 2D coordinate point and have the simulated Turtlebot 3 Burger navigate towards this 2D coordinate point using the move_base package that is provided within ROS. The 2D coordinate point sent by service call will hereby be referred to as a waypoint. The package move_base provides a vast range of solutions for navigating a robot to a given goal point. This package will be used to define the waypoint navigation for the Turtlebot 3 Burger. It provides strategies for planning navigation and seeing the ongoing execution of the plan.
 </p>
-
-
-  The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control) to make sure the Turtlebot 3 Burger is staying on the path in the physical world.
-
 
 ### Data gathering
 <p>
