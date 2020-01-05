@@ -6,16 +6,44 @@ Unknown subterranean areas hold a certain risk for humans to discover and survey
 This is the base for the project, and the goal is to develop software that can be applied to existing ground moving robots. This software should allow the robot to collaborate and map unknown areas such as caves and tunnels. The team assigned to the project consisted of seven students from the Luleå University of Technology. Each student with a background in Computer Science, Electrical Engineering and Control theory. The project lasted for a span of 20 weeks, with weekly progress updates and meetings scheduled.
 </p>
 
-## Method
+## Provided Hardware and Software
 
 ### The Turtlebot
 <p>
-The robotic hardware used for the project was a Turtlebot 3 Burger, provided by the robotics department within Luleå University of Technology for its size and the components.
-The Turtlebots layout consisted of 4 stacked layers, each with their own set of components. The first (base) layer held the two DYNAMIXEL XL430-W250 actuators, and a slot for the lithium polymer battery. By having two actuators the Turtlebot would be able to traverse at a higher speed with less stress, and gain more freedom during turns.
-The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. Its main purpose was to control the actuators for the Turtlebot, but it also help the power switch and distribution for the system.
+The robotic hardware used for the project was a Turtlebot 3 Burger (TB3B), provided by the robotics department within Luleå University of Technology for its size and the components.
+The TB3B layout consisted of 4 stacked layers, each with their own set of components. The first (base) layer held the two DYNAMIXEL XL430-W250 actuators, and a slot for the lithium polymer battery. By having two actuators the TB3B would be able to traverse at a higher speed with less stress, and gain more freedom during turns.
+The second layer held the OpenCR1.0 board that worked as the middleman between the actuators, battery and the Raspberry Pi. Its main purpose was to control the actuators for the TB3B, but it also help the power switch and distribution for the system.
 The third layer held the brain of the system, the Raspberry Pi 3 Model B. The Raspberry Pi was installed with a Ubuntu MATE 18.04 operating system, which handled the backend software for sending the robots gathered data to the central station, and the navigation system, which made sure that the robot did explore an already explored area.
 On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor LDS-01 LiDAR. The LiDAR constantly scanned and gathered data about its surroundings which were sent down to the Raspberry Pi for processing.
 </p>
+
+### The ROS Framework
+<p>
+The Robot Operating System (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount functionality one could desire from a robot e.g. navigation and simultaneous localization and mapping (SLAM). These two features were used extensively within the project.
+ROS also provides tools for simulation and visualization. These tools were used to debug the application and test if desired behaviour had been reached before the application was deployed into a real world scenario for further benchmarking.
+</p>
+
+<p>
+A ROS application is made up of several nodes in a network called a ROS graph where each node is a process that performs computation. Nodes are meant to operate on a very granular scale and a ROS application will therefore comprise of many nodes. In the case with the TB3B there is for example one node controlling the LIDAR, one controlling the motors to the wheels and one node performing localization.
+</p>
+
+<p>
+Nodes communicate with each other by publishing messages to topics which are then subscribed to by other nodes. A message can contain a range of different data types. Standard primitive types are supported as are arrays of them.
+</p>
+
+<p>
+Messages also come in the form of service calls where a node sends a request message to a node in order to recieve a reply in the form of a response message.
+</p>
+
+<p>
+Topics are named buses which nodes send messages over. Topics generate messages even if there is no subscriber. Nodes do not know who they are communicating with, it works on the same principle as FM radio where the interested will tune themselves to the continous broadcast to find the information they are interested in.
+</p>
+
+<p>
+This model is however not appropriate for request and reply interactions between nodes. This is therefore done with another concept called a service. These can often be treated as if they wre remote procedure calls.
+</p>
+
+## Method
 
 ### The controller
 <p>
