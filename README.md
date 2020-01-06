@@ -47,6 +47,7 @@ This model is however not appropriate for request and reply interactions between
 
 ### The controller
 <p>
+The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control) to make sure the Turtlebot 3 Burger is staying on the path in the physical world.
 </p>
 
 ### The simulator
@@ -75,10 +76,6 @@ The script that described what to visualize was extended significantly as the pr
 By using Rviz, a 2D goal point was successfully published to the TB3B and all relevant topics were recieved correctly.
 By following the earlier mentioned tutorials for the TB3B it became possible to navigate on a known map in a simulated world with the modified TB3B model.
 </p>
-
-
-  The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control) to make sure the Turtlebot 3 Burger is staying on the path in the physical world.
-
 
 ### Data gathering
 <p>
