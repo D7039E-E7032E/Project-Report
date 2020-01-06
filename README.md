@@ -52,12 +52,12 @@ The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/P
 
 ### The simulator
 <p>
-The software Rviz [1] is a 3D visualizer created for the ROS framework. It was used to visualize published information from the robot and also used in a later stage to issue commands to the robot for navigation purposes. The software was chosen because of its tight integration with the ROS framework and ease of use.
-The TB3B and the world it was navigating was simulated using the software Gazebo. This software was also chosen because of its tight integration with the ROS framework.
+The software that will visualize what the robot experiences is RViz. This software will also be chosen because of its tight integration with the ROS framework.
+A TB3B will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
 </p>
 
 <p>
-Rviz makes use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B was used to describe the robot and its capabilities to Rviz. A camera was to be added to the real world robot and therefore a camera had to be added to the URDF describing the simulated robot. The camera was however never added to the real world robot. URDF files are written in XML by using the macro language xacro. This made the URDF files easier to maintain and to read.
+The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visualized using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
 </p>
 
 <p>
