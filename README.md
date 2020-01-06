@@ -84,9 +84,13 @@ The LIDAR was used to gather all the data used to map the environment. The raw d
 
 ### Cartographer
 <p>
-Cartographer is an algorithm/system used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM is the main part. 
+The Cartographer system is derived from Google’s repository in GitHub where the system is an open source project, letting us to use it. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
+</p>
 
-Cartographer contains two SLAMs, one local SLAM, and one global SLAM. The local SLAM is to generate approved submaps with correct scans(range data) and the global is reconstruct everything together and creating a global map. Global map can then be used to visually represent the environment.
+<p>
+Cartographer is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, one local SLAM and one global SLAM. The local SLAMs function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
+	The usefulness of this system is in the quality of output file it creates. Output file in interest is a portable grey map (PGM) file and quality is how well it detects walls and filter out noise such as moving and small objects. For Cartographer to work with the rest of the parts necessary tuning on the system’s parameters had to be done to work with the turtlebot3
+
 </p>
 
 ### Navigation
