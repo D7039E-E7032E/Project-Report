@@ -84,7 +84,7 @@ The LIDAR was used to gather all the data used to map the environment. The raw d
 
 ### Cartographer
 <p>
-The Cartographer system is derived from Google’s repository in GitHub where the system is an open source project, letting us to use it. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
+The Cartographer system is derived from Google’s repository in GitHub where the system is an open source project, letting us to use it. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
 </p>
 
 <p>
@@ -118,6 +118,7 @@ In this case, Central station is the ROS master. Its role is to look over the ot
 
 ## Discussion
 <p>
+As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
 </p>
 
 # Appendices
