@@ -140,7 +140,7 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 
 ## Meeting protocol
 <p>
-  All the meeting protocols can be found<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Meeting-protocols">here</a>.
+  All the meeting protocols can be found<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Meeting-protocols"> here</a>.
 </p>
 
 ## Links
