@@ -181,6 +181,26 @@ The variable p, in equation above, was chosen in simulations for optimal perform
 Central station's purpose is to control and communicate with the TB3Bs. From the central station, all packages are runned through the scripts which contains the essential ROS commands. Also the ROS master node is started through ROS command roscore at central station. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrieve parameters from nodes. These parameters are XMLRPC data types which are XML equivalents of common data types.
 </p>
 
+#### The merging script
+<p>
+  The map merging script starts out by extending the length and height of the images to the initial hypotenuse, that way no matter how it is rotated it will still fit on the canvas. Then it runs the canny edge detection on the two images that are supposed to be merged. This is done to remove any area that is between the edges of the walls as it will clutter the hough images that are created. It will then create a hough image of each of the edge detected maps.
+</p>
+<p>
+Once the hough images are created it will run through each one of them and create an array of the maximum intensity on each angle where in our case the hough image has a resolution of 1280x720 pixels which means that each angle interval is 0.14°. This is the same as running the max function over each column.
+</p>
+<p>
+This resulting array is then passed into a function which runs a periodic cross-correlation between the two given arrays. From the cross correlation the different rotation hypotheses are given by finding the local peaks in the array given from the cross-correlation. These peaks will be given as a pixel location on the x-axis which is then converted to a degree instead. This is done using the knowledge that the hough image goes from -90° to 90° as well as that the hough image is 1280px wide. The given equation is then (x/1280)180-90.
+</p>
+<p>
+The next step in the process of finding the correct hypothesis, this is done using the Multiple Hypothesis Handling (Algorithm 1) which is given in the research paper Map Merging Using Hough Peak Matching. The result is a hypothetical angle which is compared to the rotational hypotheses, the one closest to the hypothetical angle is chosen as the “correct” hypothesis. The original non-extended image is then rotated and then once again extended to the same size as before. Then the rotated map is run through the edge detection and hough transformation again as well as max function described above, lastly before moving on to the next step all the local peaks are found.
+</p>
+<p>
+  Next step is the translation, this is also done according to the research paper mentioned above. The paper states that to find the translation matrix T<sub>O</sub> the equation
+
+![TranslationEquation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/TranslationEquation.png "Translation Equation")
+(which can also be written as B = AT<sub>O</sub>,) must be solved, this is done by calculating the matrices A and B. To find the 𝞺 and 𝞱, Algorithm 2 from the research paper is used which is similar to Algorithm 1, the difference is that 𝞺 is also considered when matching the peaks and instead of looking over the whole all 𝞱 when comparing it only compares within a short range of the reference point that it compares to. When all matching peaks have been found it calculates A and B by finding the respective 𝞺 and 𝞱 and puts it in the equation above where 𝞺1’ is the 𝞺 from the map that is to be moved. In T<sub>O</sub> the number in the first row is the offset for the x-coordinate and the lower row is for the y-coordinate. Once T<sub>O</sub> is calculated the new coordinates for the rotated map is calculated by offsetting the center of the rotated image from the center of the first image with the values from T<sub>O</sub>. This is where the maps are then merged and saved.
+</p>
+
 ### Communication
 <p>
 There are several options when it comes to data transfer between each robot and the central system. In this project, multiple solutions have been considered. Continuous data streaming would be the ideal solution since it would allow the system to update the global map from all sources continuously during runtime. This is however hard to implement in an unexplored cave system were connectivity is likely to be limited. This limitation is mainly caused by the nature of this project. It goes without saying that in an unexplored environment there will not be any wireless access points for the robot to connect to during runtime. Wireless connectivity will also be blocked by the thick cave walls. Satellite connection is not viable either due to the robot being located underground. A wired connection is a somewhat reasonable solution although it presents other, more physical, limitations. For example, it would limit the range each robot could go before being stopped by the wire. It could also cause problems if the wire gets stuck on something in the terrain or if the robot gets tangled in the wire.
