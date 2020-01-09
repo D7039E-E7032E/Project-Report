@@ -161,6 +161,15 @@ ROS topics currently support both UDP and TCP message transport. Using the alrea
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
 </p>
 
+### Difficulties during the project
+<p>
+Getting all of the software properly installed and running took a lot of time in this project. This could have been avoided by having a better picture of what was needed in the beginning. There could have been more research in what should be done and added to the project.
+</p>
+
+<p>
+The Raspberry Pi had some problmes with handeling the load and starting to overheat. A swap memory partition was reserved onthe secondary memory to replicate RAM functionality when the primary memory is fully occupied. However, this was not enough if Rviz was runnning. So there would still be some issues with it being very slow and the heat.
+</p>
+
 # Appendices
 
 ## Gantt Schedule
