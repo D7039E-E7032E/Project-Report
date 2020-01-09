@@ -127,6 +127,31 @@ In this case, Central station is the ROS master. Its role is to look over the ot
   
 </p>
 
+### Communication
+<p>
+There are several options when it comes to data transfer between each robot and the central system. In this project, multiple solutions have been considered. Continuous data streaming would be the ideal solution since it would allow the system to update the global map from all sources continuously during runtime. This is however hard to implement in an unexplored cave system were connectivity is likely to be limited. This limitation is mainly caused by the nature of this project. It goes without saying that in an unexplored environment there will not be any wireless access points for the robot to connect to during runtime. Wireless connectivity will also be blocked by the thick cave walls. Satellite connection is not viable either due to the robot being located underground. A wired connection is a somewhat reasonable solution although it presents other, more physical, limitations. For example, it would limit the range each robot could go before being stopped by the wire. It could also cause problems if the wire gets stuck on something in the terrain or if the robot gets tangled in the wire.
+</p>
+
+<p>
+Another solution is to allow each robot to venture out on its own and generate a local map that is stored locally on the robot. It would then return to its starting point after a certain condition has been met, be that in distance or time traveled. Once back at the starting point it could then transfer the local map to the central station where it would be merged into the global map. The updated global map would then be passed back to the robot and it could go back to exploring with the new data.
+</p>
+
+<p>
+Naturally this introduces some other limitations. For example if one robot returns and updates the global map, the other robots won’t be aware of this new data until each have gone back to update. This could result in multiple robots exploring the same area. It also causes robots to go through the same path twice since it has to return home, which in turn reduces efficiency. 
+</p>
+
+<p>
+Ideally the streaming solution would be the one used. If this is not attainable however a different path needs to be taken. Each of these solutions comes with certain compromises. They are all viable in different situations and it would therefore have to be decided on a case by case basis which solution is to be implemented. Consider instead an unexplored building on ground level. In such a scenario satellite connectivity could be implemented to transfer data. Consider a cave that have been previously explored but not entirely mapped out. In such a scenario there could possibly exist access points for robots to connect to. In the end one should commit to only employ a single solution for all tasks, but instead consider the alternatives.
+</p>
+
+<p>
+Data streaming capabilities is a straightforward implementation due to the underlying ROS framework. ROS supports something they call ‘topics’ which is simply a way for nodes to publish data and other nodes to subscribe to that data stream. In this case, each robot would be a separate node to which the master node subscribes to. The master node being the central station. As for topics, they have anonymous publish/subscribe semantics, which decouples the production of information from its consumption. In general, nodes are not aware of who they are communicating with. Instead, nodes that are interested in data subscribe to the relevant topic; nodes that generate data publish to the relevant topic. There can be multiple publishers and subscribers to a topic. This would also allow each robot to subscribe to all other data feeds which would ensure that all robots are constantly aware of what the others are doing in the network. 
+</p>
+
+<p>
+ROS topics currently support both UDP and TCP message transport. Using the already implemented TCP ensures minimal package loss. Since data isn’t stored indefinitely on each unit it becomes difficult to validate that all robots possess the same, and correct data. It is important that package loss is minimized. Otherwise the quality of the map could quickly deteriorate and present holes of missing data points on the global map.
+</p>
+
 ## Results
 <p>
 </p>
