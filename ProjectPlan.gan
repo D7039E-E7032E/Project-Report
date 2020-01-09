@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-08-25" view-index="0" gantt-divider-location="331" resource-divider-location="300" version="2.8.10" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-09-01" view-index="0" gantt-divider-location="331" resource-divider-location="300" version="2.8.10" locale="en_US">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
-        <field id="tpd3" name="Name" width="157" order="0"/>
-        <field id="tpd4" name="Begin date" width="70" order="1"/>
-        <field id="tpd5" name="End date" width="100" order="2"/>
-        <option id="color.recent">
-            <![CDATA[#f400ff #33ffff #ff9900 #009966 #ff00ff #66ffff]]>
-        </option>
+        <field id="tpd3" name="Name" width="149" order="0"/>
+        <field id="tpd4" name="Begin date" width="67" order="1"/>
+        <field id="tpd5" name="End date" width="96" order="2"/>
+        <option id="taskLabelUp" value="name"/>
+        <option id="taskLabelDown" value="resources"/>
+        <timeline><![CDATA[183]]></timeline>
+        <option id="color.recent"><![CDATA[#00cccc #f400ff #33ffff #ff9900 #009966 #ff00ff #66ffff]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="210" order="0"/>
@@ -36,81 +37,80 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="57" name="Point Cloud" color="#33ffff" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
-            <task id="0" name="Identify lidar’s capabilities" color="#66ffff" meeting="false" start="2019-09-09" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
+        <task id="57" name="Point Cloud" color="#33ffff" meeting="false" start="2019-09-09" duration="85" complete="92" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+            <task id="0" name="Identify lidar’s capabilities" color="#66ffff" meeting="false" start="2019-09-09" duration="15" complete="100" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
                 <depend id="2" type="2" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="12" name="Identify functionalities in ROS that would be helpful for mapping" color="#33ffff" meeting="false" start="2019-09-09" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
+            <task id="12" name="Identify functionalities in ROS that would be helpful for mapping" color="#33ffff" meeting="false" start="2019-09-09" duration="15" complete="100" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true">
                 <depend id="2" type="2" difference="0" hardness="Strong"/>
                 <depend id="7" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="2" name="Data retriveval from LIDAR" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
-            <task id="7" name="ROS reading of all the sensors" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
-            <task id="136" name="Data handling" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true">
+            <task id="2" name="Data retriveval from LIDAR" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="100" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
+            <task id="7" name="ROS reading of all the sensors" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="100" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
+            <task id="136" name="Data handling" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="100" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true">
                 <depend id="138" type="2" difference="0" hardness="Strong"/>
             </task>
             <task id="135" name="Identify robustness towards lighting and characteristics of the environment" color="#33ffff" meeting="false" start="2019-09-30" duration="15" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
-            <task id="138" name="Sending data to central" color="#33ffff" meeting="false" start="2019-10-21" duration="11" complete="0" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true">
+            <task id="138" name="Sending data to central" color="#33ffff" meeting="false" start="2019-10-21" duration="11" complete="100" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true">
                 <depend id="18" type="2" difference="0" hardness="Strong"/>
                 <depend id="140" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="140" name="Send data to units" color="#33ffff" meeting="false" start="2019-11-05" duration="25" complete="0" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true"/>
-            <task id="18" name="Setting of the 2D lidar based mapping for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true"/>
-            <task id="29" name="Setting of the visual point cloud for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
+            <task id="140" name="Send data to units" color="#33ffff" meeting="false" start="2019-11-05" duration="25" complete="100" thirdDate="2019-08-12" thirdDate-constraint="0" expand="true"/>
+            <task id="18" name="Setting of the 2D lidar based mapping for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="100" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true"/>
+            <task id="29" name="Setting of the visual point cloud for real time execution" color="#33ffff" meeting="false" start="2019-11-05" duration="44" complete="100" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="true"/>
         </task>
-        <task id="59" name="Data processing" color="#f400ff" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true">
-            <task id="30" name="Cartographer implementation for a robot" color="#ff00ff" meeting="false" start="2019-09-09" duration="24" complete="0" thirdDate="2019-09-09" thirdDate-constraint="1" expand="true">
+        <task id="59" name="Data processing" color="#f400ff" meeting="false" start="2019-09-09" duration="85" complete="77" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true">
+            <task id="30" name="Cartographer implementation for a robot" color="#ff00ff" meeting="false" start="2019-09-09" duration="24" complete="100" thirdDate="2019-09-09" thirdDate-constraint="1" expand="true">
                 <depend id="43" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="148" name="Cartographer reading" color="#f400ff" meeting="false" start="2019-09-23" duration="7" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
-            <task id="157" name="Testing Cartographer" color="#f400ff" meeting="false" start="2019-09-30" duration="10" complete="0" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
-            <task id="43" name="Build occupancy map for one robot" color="#f400ff" meeting="false" start="2019-10-11" duration="7" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true"/>
-            <task id="55" name="Experimental demonstration of the single agent case" color="#f400ff" meeting="false" start="2019-10-14" duration="14" complete="0" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
-            <task id="37" name="Identify if the merging should take place in a base station" color="#f400ff" meeting="false" start="2019-10-29" duration="4" complete="0" thirdDate="2019-09-11" thirdDate-constraint="0" expand="true"/>
+            <task id="148" name="Cartographer reading" color="#f400ff" meeting="false" start="2019-09-23" duration="7" complete="100" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+            <task id="157" name="Testing Cartographer" color="#f400ff" meeting="false" start="2019-09-30" duration="10" complete="100" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+            <task id="43" name="Build occupancy map for one robot" color="#f400ff" meeting="false" start="2019-10-11" duration="4" complete="100" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true"/>
+            <task id="55" name="Experimental demonstration of the single agent case" color="#f400ff" meeting="false" start="2019-10-14" duration="14" complete="100" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="37" name="Identify if the merging should take place in a base station" color="#f400ff" meeting="false" start="2019-10-29" duration="4" complete="100" thirdDate="2019-09-11" thirdDate-constraint="0" expand="true"/>
             <task id="41" name="Identify visual based 3D mapping for real time execution)" color="#f400ff" meeting="false" start="2019-11-04" duration="4" complete="0" thirdDate="2019-09-09" thirdDate-constraint="0" expand="true"/>
-            <task id="51" name="Stitch/merge multiple occupancy maps" color="#f400ff" meeting="false" start="2019-11-08" duration="10" complete="0" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
+            <task id="51" name="Stitch/merge multiple occupancy maps" color="#f400ff" shape="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0" meeting="false" start="2019-11-08" duration="10" complete="0" thirdDate="2019-08-30" thirdDate-constraint="0" expand="true"/>
             <task id="45" name="Establish proper network links with the robots" color="#f400ff" meeting="false" start="2019-11-22" duration="4" complete="0" thirdDate="2019-09-05" thirdDate-constraint="0" expand="true"/>
-            <task id="116" name="Synthesise all components in a platform" color="#f400ff" meeting="false" start="2019-11-28" duration="27" complete="0" thirdDate="2019-09-06" thirdDate-constraint="0" expand="true"/>
+            <task id="161" name="Find merge algorithm" color="#f400ff" meeting="false" start="2019-11-20" duration="4" complete="100" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
+            <task id="163" name="Implement the merge algorithm" color="#f400ff" meeting="false" start="2019-11-25" duration="30" complete="75" thirdDate="2019-08-26" thirdDate-constraint="0" expand="true"/>
         </task>
-        <task id="63" name="Pathfinding" color="#ff9900" meeting="false" start="2019-09-09" duration="85" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
-            <task id="66" name="Path following" color="#ff9900" meeting="false" start="2019-09-09" duration="7" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
-                <notes>
-                    <![CDATA[
-]]>
-                </notes>
+        <task id="63" name="Pathfinding" color="#ff9900" meeting="false" start="2019-09-09" duration="85" complete="97" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+            <task id="66" name="Path following" color="#ff9900" meeting="false" start="2019-09-09" duration="7" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+                <notes><![CDATA[
+]]></notes>
                 <depend id="69" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="69" name="Path planing" color="#ff9900" meeting="false" start="2019-09-18" duration="32" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+            <task id="69" name="Path planing" color="#ff9900" meeting="false" start="2019-09-18" duration="32" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
                 <depend id="99" type="2" difference="0" hardness="Strong"/>
-                <task id="72" name="research obstacle avoidance solutions" color="#ff9900" meeting="false" start="2019-09-18" duration="14" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+                <task id="72" name="research obstacle avoidance solutions" color="#ff9900" meeting="false" start="2019-09-18" duration="14" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
                     <depend id="74" type="2" difference="0" hardness="Strong"/>
                     <depend id="78" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="74" name="Innovation" color="#ff9900" meeting="false" start="2019-10-08" duration="14" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
-                <task id="78" name="Planing" color="#ff9900" meeting="false" start="2019-10-08" duration="4" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+                <task id="74" name="Innovation" color="#ff9900" meeting="false" start="2019-10-08" duration="14" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
+                <task id="78" name="Planing" color="#ff9900" meeting="false" start="2019-10-08" duration="4" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
                     <depend id="80" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="80" name="Implimentation" color="#ff9900" meeting="false" start="2019-10-14" duration="14" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
+                <task id="80" name="Implimentation" color="#ff9900" meeting="false" start="2019-10-14" duration="14" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="89" name="Creat simulator" color="#ff9900" meeting="false" start="2019-09-09" duration="21" complete="0" thirdDate="2019-08-28" thirdDate-constraint="0" expand="true"/>
-            <task id="99" name="Simulating and tuning" color="#ff9900" meeting="false" start="2019-11-01" duration="14" complete="0" thirdDate="2019-10-10" thirdDate-constraint="0" expand="true">
+            <task id="89" name="Creat simulator" color="#ff9900" meeting="false" start="2019-09-09" duration="21" complete="100" thirdDate="2019-08-28" thirdDate-constraint="0" expand="true"/>
+            <task id="99" name="Simulating and tuning" color="#ff9900" meeting="false" start="2019-11-01" duration="14" complete="100" thirdDate="2019-10-10" thirdDate-constraint="0" expand="true">
                 <depend id="105" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="105" name="Layout navigation" color="#ff9900" meeting="false" start="2019-11-21" duration="32" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
-                <task id="107" name="research exploration solutions" color="#ff9900" meeting="false" start="2019-11-21" duration="14" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+            <task id="105" name="Layout navigation" color="#ff9900" meeting="false" start="2019-11-21" duration="32" complete="92" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+                <task id="107" name="research exploration solutions" color="#ff9900" meeting="false" start="2019-11-21" duration="14" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
                     <depend id="109" type="2" difference="0" hardness="Strong"/>
                     <depend id="111" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="109" name="Innovation" color="#ff9900" meeting="false" start="2019-12-11" duration="14" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
-                <task id="111" name="Planing" color="#ff9900" meeting="false" start="2019-12-11" duration="4" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
+                <task id="109" name="Innovation" color="#ff9900" meeting="false" start="2019-12-11" duration="14" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
+                <task id="111" name="Planing" color="#ff9900" meeting="false" start="2019-12-11" duration="4" complete="100" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true">
                     <depend id="113" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="113" name="Implimentation" color="#ff9900" meeting="false" start="2019-12-17" duration="14" complete="0" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
+                <task id="113" name="Implimentation" color="#ff9900" meeting="false" start="2019-12-17" duration="14" complete="75" thirdDate="2019-08-29" thirdDate-constraint="0" expand="true"/>
             </task>
         </task>
-        <task id="61" name="Misc" color="#009966" meeting="false" start="2019-09-27" duration="1" complete="0" thirdDate="2019-09-27" thirdDate-constraint="0" expand="true"/>
         <task id="35" name="First presentation" color="#009966" meeting="true" start="2019-09-27" duration="0" complete="0" thirdDate="2019-09-04" thirdDate-constraint="0" expand="true"/>
+        <task id="183" name="Final Presentation" color="#00cccc" meeting="true" start="2020-01-10" duration="0" complete="0" thirdDate="2019-09-23" thirdDate-constraint="0" priority="4" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Anton Tiberg" function="Default:0" contacts="" phone=""/>
@@ -132,6 +132,7 @@
         <allocation task-id="136" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="138" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="140" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="183" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="0" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="2" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="7" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
@@ -154,6 +155,7 @@
         <allocation task-id="74" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="78" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="80" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="183" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="30" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="37" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="41" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
@@ -161,8 +163,9 @@
         <allocation task-id="45" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="51" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="55" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="116" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="148" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="161" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="183" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="30" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="37" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="41" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
@@ -170,8 +173,8 @@
         <allocation task-id="45" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="51" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="55" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="116" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="148" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="161" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="35" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="66" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="89" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
@@ -191,7 +194,6 @@
         <allocation task-id="41" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="51" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="45" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
-        <allocation task-id="116" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="0" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="12" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="135" resource-id="6" function="Default:0" responsible="false" load="100.0"/>
