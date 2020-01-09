@@ -80,7 +80,11 @@ The Central station takes care of the merging process. Once complete it will sen
 Once the hough images are created it will run through each one of them and create an array of the maximum intensity on each angle where in our case the hough image has a resolution of 1280x720 pixels which means that each angle interval is 0.14°. This is the same as running the max function over each column.
 </p>
 <p>
+<<<<<<< HEAD
 This resulting array is then passed into a function which runs a periodic cross-correlation between the two given arrays. From the cross correlation the different rotation hypotheses are given by finding the local peaks in the array given from the cross-correlation. These peaks will be given as a pixel location on the x-axis which is then converted to a degree instead. This is done using the knowledge that the hough image goes from -90° to 90° as well as that the hough image is 1280px wide. The given equation is then (x/1280)180-90.
+=======
+This resulting array is then passed into a function which runs a periodic cross-correlation between the two given arrays. From the cross correlation the different rotation hypotheses are given by finding the local peaks in the array given from the cross-correlation. These peaks will be given as a pixel location on the x-axis which is then converted to a degree instead. This is done using the knowledge that the hough image goes from -90° to 90° as well as that the hough image is 1280 pixels wide. The given equation is then (x/1280)180-90. 
+>>>>>>> Added all images
 </p>
 <p>
 The next step in the process of finding the correct hypothesis, this is done using the Multiple Hypothesis Handling (Algorithm 1) which is given in the research paper Map Merging Using Hough Peak Matching. The result is a hypothetical angle which is compared to the rotational hypotheses, the one closest to the hypothetical angle is chosen as the “correct” hypothesis. The original non-extended image is then rotated and then once again extended to the same size as before. Then the rotated map is run through the edge detection and hough transformation again as well as max function described above, lastly before moving on to the next step all the local peaks are found.
@@ -198,7 +202,28 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 =======
 >>>>>>> Moved Merging Script explanation to System Design
 ## Results
+### Merging the maps
 <p>
+
+  ![Map 1)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map.png?raw=true)
+  ![Map 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map2.png?raw=true)
+  ![Map 1 Extended)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend.png?raw=true)
+  ![Map 2 Extended](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend2.png?raw=true)
+  ![Map 1 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesH.png?raw=true)
+  ![Map 2 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edges2H.png?raw=true)
+  ![Map 1 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho.png?raw=true)
+  ![Map 2 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho2.png?raw=true)
+  ![Map 1 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax.png?raw=true)
+  ![Map 2 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax2.png?raw=true)
+  ![Map Max Correlation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/maxCorr.png?raw=true)
+  ![Map 2 rotation hypothesis 1](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_-31_degrees.png?raw=true)
+  ![Map 2 rotation hypothesis 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_58_degrees.png?raw=true)
+  ![Rotated Map extended](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_extended.png?raw=true)
+  ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesR.png?raw=true)
+  ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/hoR.png?raw=true)
+  ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmaxR.png?raw=true)
+  ![Merged Map](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/merged.png?raw=true)
+
 </p>
 
 ## Discussion
