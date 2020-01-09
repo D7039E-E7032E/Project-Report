@@ -63,9 +63,11 @@ There are several steps to do when it comes to detecting lines in an image. For 
 
 <p>
 When the newly created image with Canny Edge is done, Hough Transform was the next step. Hough Transform takes advantage of mapping each pixel coordinates to a corresponding line in Hough Space. Since each pixel has a fixed known X and Y coordinate value which can be transformed into a polar coordinate with ⍴ and θ as the axis.
-\
+</p>
+
 *⍴=Xcos(θ)+Ysin(θ)*
-\
+
+<p>
 Thus each pixel represents a sinusoid line in Hough Space. When each pixel gets a representation in Hough Space there will be a bunch of intersection points where the lines meet. These intersection points in Hough Space mapped back to the Image Space gives the most common lines in the image. By here the walls have been detected.
 </p>
 
