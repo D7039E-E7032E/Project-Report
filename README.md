@@ -52,8 +52,18 @@ The Cartographer system is derived from Google’s repository in GitHub where th
 Cartographer is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
 
 The usefulness of this system is in the quality of representing the environment, high-resolution maps can be easily created with this system. Cartographer itself creates a compressed file (pbstream) as an output. The file only contains what Cartographer claims to be useful sensor data. Then when recombined with the full sensor data file (bag) creating a high-resolution map. Although it is in the interest of the project to combine multiple maps from multiple robots into one map, there was no clear way to do that with the system. Instead, the output file in interest became a portable grey map (PGM file). For Cartographer to work with the rest of the parts, necessary tuning on the system’s parameters had to be done to work with the turtlebot3.  
-
 </p>
+
+### Detecting lines in image
+
+There are several steps to do when it comes to detecting lines in an image. For starters, only the necessary data such as the edges on the map representing the walls was wanted. The research paper (source) used the Canny Edge Detection approach to detect the edges in an image. Canny Edge Detection is a multi-step algorithm where the goal is to create a binary representation of the image where ones are walls and zeros are everything else. First, it’s using gaussian blur as filtering out noises before running what is known as Sobel edge detection. This ensures that much of the unwanted edges are removed. From here threshold and hysteresis are applied to result in the binary image with only the edges left.
+
+When the newly created image with Canny Edge is done, Hough Transform was the next step. Hough Transform takes advantage of mapping each pixel coordinates to a corresponding line in Hough Space. Since each pixel has a fixed known X and Y coordinate value which can be transformed into a polar coordinate with ⍴ and θ as the axis.
+\
+      ⍴ = Xcos(θ) + Ysin(θ) 
+\
+Thus each pixel represents a sinusoid line in Hough Space. When each pixel gets a representation in Hough Space there will be a bunch of intersection points where the lines meet. These intersection points in Hough Space mapped back to the Image Space gives the most common lines in the image. By here the walls have been detected.
+
 
 ## Method
 
