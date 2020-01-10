@@ -176,7 +176,7 @@ The script that makes the merging and map updating an automated process is one t
 </p>
 
 <p>
-As it stands the robot will not function automatically in our test environment. Further improvements would be to write a shell script which automates a list of tasks. When a global navigation point has been given to the robot it will start moving. What the shell script needs to handle is the continuous updating of the global map known to each robot. This means that the script needs to run scp commands to transfer the local map to the central station. Then there needs to be a script running on the central station which sends the global map back to the robot when a merge has been completed.
+As it stands the robot will not function automatically in our test environment. Further improvements would be to write a shell script that automates a list of tasks. When a global navigation point has been given to the robot it will start moving. What the shell script needs to handle is the continuous updating of the global map known to each robot. This means that the script needs to run SCP commands to transfer the local map to the central station. Then there needs to be a script running on the central station which sends the global map back to the robot when a merge has been completed.
 </p>
 
 # Appendices
