@@ -172,7 +172,7 @@ The Raspberry Pi had some problmes with handeling the load and starting to overh
 
 ### Further improvements
 <p>
-The script that makes the merging and map updating an automate process is one thing that could be improved. As of rigth now it has been tested that the concept works, but it has not been used in real time execution since there was no need to when getting the scans of the maps.
+The script that makes the merging and map updating an automated process is one thing that could be improved. As of right now, it has been tested that the concept works, but it has not been used in real-time execution since there was no need to when getting the scans of the maps.
 </p>
 
 # Appendices
