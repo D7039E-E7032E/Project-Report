@@ -170,6 +170,11 @@ Getting all of the software properly installed and running took a lot of time in
 The Raspberry Pi had some problmes with handeling the load and starting to overheat. A swap memory partition was reserved onthe secondary memory to replicate RAM functionality when the primary memory is fully occupied. However, this was not enough if Rviz was runnning. So there would still be some issues with it being very slow and the heat.
 </p>
 
+### Further improvements
+<p>
+The script that makes the merging and map updating an automated process is one thing that could be improved. As of right now, it has been tested that the concept works, but it has not been used in real-time execution since there was no need to when getting the scans of the maps.
+</p>
+
 # Appendices
 
 ## Gantt Schedule
