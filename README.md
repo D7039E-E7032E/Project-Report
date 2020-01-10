@@ -152,6 +152,10 @@ Data streaming capabilities is a straightforward implementation due to the under
 ROS topics currently support both UDP and TCP message transport. Using the already implemented TCP ensures minimal package loss. Since data isn’t stored indefinitely on each unit it becomes difficult to validate that all robots possess the same, and correct data. It's important that package loss is minimized. Otherwise the quality of the map could quickly deteriorate and present holes of missing data points on the global map.
 </p>
 
+<p>
+The robot is running the Linux operating system ubuntu MATE. The central station is also running a version of ubuntu. This allows access to common bash commands like SSH which lets the user remotely connect to the robot. It also allows for easy file transfer via shell SCP commands. When the robot has a stable connection it can then transfer data to the central station. Which will, in turn, send back the updated global map. There is a shell script that will automate this process, although that is not entirely implemented. The downside of this approach is that both parties require bash terminal functionality. It also doesn’t support active data streaming, instead, it only transfers complete files. The shell script can be adjusted to send updates very frequently but even then it does not equal a continuous data stream. The positives are down to how robust this SCP command is. It will ensure that data is transferred in its entirety. It features extensive error detection in which an error will be properly raised and can then be handled in software. It also manages all the networking going on behind the scenes by opening and closing ssh connections properly and since it is run in a shell instance it also handles multiprocessing.
+</p>
+
 ## Results
 <p>
 </p>
