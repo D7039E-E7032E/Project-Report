@@ -234,6 +234,7 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 </p>
 ## Results
 
+<<<<<<< HEAD
 ### Simulation
 |    The camera added to TB3B (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
 |:---------------------------------------------:|:---------------------------------------------------------------------------:
@@ -271,7 +272,6 @@ The robot has very good performance navigating unknown environments. The only pr
 <p>
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
 </p>
-<<<<<<< HEAD
 
 <<<<<<< HEAD
 ### Simulation
@@ -283,6 +283,7 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 =======
 >>>>>>> Removed merge issues
 ## Results
+
 ### Merging the maps
 <p>
 
