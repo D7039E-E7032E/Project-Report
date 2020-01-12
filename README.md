@@ -159,8 +159,9 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 ## Results
 
 ### Simulation
-
-![The camera added to TB3](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/default_gzclient_camera(1)-2019-10-07T09_31_48.707295.jpg)
+|    The camera added to TB3 (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
+|:---------------------------------------------:|:---------------------------------------------------------------------------:
+|  ![The camera added to TB3](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/default_gzclient_camera(1)-2019-10-07T09_31_48.707295.jpg) |  ![The transform frame tree](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/frames_one_turtlebot3.png)
 
 <p>
   The camera was successfully added to the already provided TB3 URDF and functioned as a real-world camera would have. No mesh data was created to simulate the visual appearance of the camera. The simulated TB3 and the added camera is shown in figure .. . The camera is displayed as a grey cube. The output from the camera mounted to the TB3 model in the simulated environment can be seen in figure .. . The camera was not integrated into the real world system as it was discovered that it would not be used by the software in any meaningful way.
@@ -177,8 +178,9 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 </p>
 
 ### Navigation
-
-![The Naivigation Solution](graph_one_turtlebot3.png)
+|   The ROS-graph used for navigating. | Screenshot of viewport in Rviz.  |  Captured frame of the camera feed.
+|:------------------------------------:|:--------------------------------:|:-----------------------------------:
+|![The Naivigation Solution](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rosgraph_one_turtlebot3.png)  | ![Screenshot of viewport in Rviz.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rviz_one_turtlebot3.png)  | ![Captured frame of the camera feed.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/camera_one_turtlebot3.png)
 
 <p>
   Cartographer was successfully implemented on the TB3 platform and the output of the online node was satisfyingly processed by the navigation stack. The local navigator that was created to ensure optimal distance from walls was tested in a real-world environment but the complete solution was only deployed in a simulated environment.
