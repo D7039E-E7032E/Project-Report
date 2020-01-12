@@ -202,6 +202,7 @@ Central station's purpose is to control and communicate with the TB3Bs. From the
 </p>
 
 ### Communication
+<<<<<<< HEAD
 <p>
 There are several options when it comes to data transfer between each robot and the central system. In this project, multiple solutions have been considered. Continuous data streaming would be the ideal solution since it would allow the system to update the global map from all sources continuously during runtime. This is however hard to implement in an unexplored cave system were connectivity is likely to be limited. This limitation is mainly caused by the nature of this project. It goes without saying that in an unexplored environment there will not be any wireless access points for the robot to connect to during runtime. Wireless connectivity will also be blocked by the thick cave walls. Satellite connection is not viable either due to the robot being located underground. A wired connection is a somewhat reasonable solution although it presents other, more physical, limitations. For example, it would limit the range each robot could go before being stopped by the wire. It could also cause problems if the wire gets stuck on something in the terrain or if the robot gets tangled in the wire.
 </p>
@@ -222,6 +223,8 @@ Ideally, the streaming solution would be the one used. If this is not attainable
 Data streaming capabilities is a straightforward implementation due to the underlying ROS framework. ROS supports something they call ‘topics’ which is simply a way for nodes to publish data and other nodes to subscribe to that data stream. In this case, each robot would be a separate node to which the master node subscribes to. The master node is the central station. As for topics, they have anonymous publish/subscribe semantics, which decouples the production of information from its consumption. In general, nodes are not aware of who they are communicating with. Instead, nodes that are interested in data subscribe to the relevant topic; nodes that generate data publish to the relevant topic. There can be multiple publishers and subscribers to a topic. This would also allow each robot to subscribe to all other data feeds which would ensure that all robots are constantly aware of what the others are doing in the network. 
 </p>
 
+=======
+>>>>>>> Removed merge issues
 <p>
 ROS topics currently support both UDP and TCP message transport. Using the already implemented TCP ensures minimal package loss. Since data isn’t stored indefinitely on each unit it becomes difficult to validate that all robots possess the same, and correct data. It's important that package loss is minimized. Otherwise the quality of the map could quickly deteriorate and present holes of missing data points on the global map.
 </p>
@@ -268,6 +271,7 @@ The robot has very good performance navigating unknown environments. The only pr
 <p>
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
 </p>
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 ### Simulation
@@ -276,6 +280,8 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 =======
 =======
 >>>>>>> Moved Merging Script explanation to System Design
+=======
+>>>>>>> Removed merge issues
 ## Results
 ### Merging the maps
 <p>
