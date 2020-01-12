@@ -115,13 +115,13 @@ In the illustration above the structure of the control system an its supporting 
 
 #### Global Navigator
 
-The purpose of the global navigator is to find a path the robot should follow to reach its goal. The the goal points is set manually and when the robot reaches it, a new one will be chosen by the operator. It will use information from the global map, a map of the combined scans from all robots. This is implemented using the already existing ROS package move_base that calculates a global path for the robot using a form of A-star algorithm. 
+The purpose of the global navigator is to find a path the robot should follow to reach its goal. The the goal points are set manually and when the robot reaches it, a new one will be chosen by the operator. It will use information from the global map, a map of the combined scans from all robots. This was implemented using the already existing ROS package move_base that calculates a global path for the robot using Dynamic Window Approach Planner algorithm. 
 
 The Global Navigator uses maps generated from cartographer, which is a slow process, combined with A-star not being a particular fast algorithm. This makes the Global Navigator a rather slow. This is solved with a Local Navigator.
 
 #### Local Navigator
 
-The Local Navigator's purpose is to avoid obstacles and keeping an optimal distance to walls, this to give optimal scanning quality. It will follow the direction of the path given by the layout navigator.
+The Local Navigator's purpose is to avoid obstacles and keeping an optimal distance to walls, this to give optimal scanning quality. It will follow the direction of the path given by the Global Navigator.
 
 ![Force](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Force.svg)
 
@@ -145,7 +145,7 @@ It follows the direction given by the Local Navigator such that the point P in t
 
 ##### System 
 
-To simplify the system, some assumptions were made. Because the robot is equipped with strong motors and wheels with good grip, the assumption was made that the robot will not lose it's grip. The system is also assumed to have a near perfect step response. With these assumption the system will be static, only changing when moved by actuator.
+To simplify the system, some assumptions were made. Because the robot is equipped with strong motors and wheels with a good grip, the assumption was made that the robot will not lose it's grip. The system is also assumed to have a near perfect step response. With these assumptions the system will be static, only changing when moved by actuator.
 
 ![systeI](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/systeI.svg) 
 
@@ -159,11 +159,11 @@ Then the system can be represented in a state space model seen in equation below
 
 ##### Control rule
 
-Because the system is of first order, by using the assumptions from previous section, the optimal controller will be a P controller, as seen in equation below.
+Because the system is of first order, by using the assumptions from the previous section, the optimal controller will be a P controller, as seen in equation below.
 
 ![rule](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/controlrool.svg) 
 
-the variable p, in equation above, was chosen in simulations for optimal performance.
+The variable p, in equation above, was chosen in simulations for optimal performance.
 
 
 
