@@ -192,7 +192,6 @@ The robot is running the Linux operating system ubuntu MATE. The central station
   ![Map Max Correlation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/maxCorr.png?raw=true)
   ![Map 2 rotation hypothesis 1](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_-31_degrees.png?raw=true)
   ![Map 2 rotation hypothesis 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_58_degrees.png?raw=true)
-  ![Rotated Map extended](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_extended.png?raw=true)
   ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesR.png?raw=true)
   ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/hoR.png?raw=true)
   ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmaxR.png?raw=true)
