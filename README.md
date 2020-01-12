@@ -125,7 +125,7 @@ The Local Navigator's purpose is to avoid obstacles and keeping an optimal dista
 
 ![Force](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Force.svg)
 
-A custom ROS node was implemented to solve this. The node operates by giving all point seen by the lidar a virtual force, see equation above, which when combined creates an heat map. The node then solves the gradient of the heat map in the position of the robot, as in equation below. The value of *lp* is the distance to the point, and the values *c* and *n* is tuning-parameters, which was tuned manually. The resulting vector will then point in a direction away from all obstacles.
+A custom ROS node was implemented to solve this. The node operates by giving all point seen by the lidar a virtual force, see equation above, which when combined creates an heat map. The node then solves the gradient of the heat map in the position of the robot, as in equation below. The value of *l<sub>p</sub>* is the distance to the point, and the values *c* and *n* is tuning-parameters, which was tuned manually. The resulting vector will then point in a direction away from all obstacles.
 
 ![Grad](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Grad.svg)
 
