@@ -157,11 +157,39 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 </p>
 
 ## Results
+
+### Simulation
+
+![The camera added to TB3](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/default_gzclient_camera(1)-2019-10-07T09_31_48.707295.jpg)
+
+<p>
+  The camera was successfully added to the already provided TB3 URDF and functioned as a real-world camera would have. No mesh data was created to simulate the visual appearance of the camera. The simulated TB3 and the added camera is shown in figure .. . The camera is displayed as a grey cube. The output from the camera mounted to the TB3 model in the simulated environment can be seen in figure .. . The camera was not integrated into the real world system as it was discovered that it would not be used by the software in any meaningful way.
+  Figure .. shows the TF tree that was used during the simulations. The odometry frame that was published from Gazebo was used instead of the odometry frame that is provided by Cartographer to remove transform re-parenting errors.
+  Multiple TB3 with the developed software solution were simulated. These simulations were mostly unsuccessful as there were a multitude of problems with transforms being incorrectly interpreted by Gazebo, e.g. multiple TB3 sharing the same virtual space in the simulated environment. 
+</p>
+
+|    The Turtle World       |    The House World
+|:-------------------------:|:-------------------------:
+|  ![Ortographic view of the turtle world](gazebo_multi_turtlebot3_turtle_world.png) |  ![Ortographic view of the house world](gazebo_one_turtlebot3_house_world.png)
+
+<p>
+  The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure .. . The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3 would eventually explore was not used as there was no world such as this already provided. It was decided that this was uneccesary workload as there are real world environments at the university campus that satisfies our requirements.
+</p>
+
+### Navigation
+
+![The Naivigation Solution](graph_one_turtlebot3.png)
+
+<p>
+  Cartographer was successfully implemented on the TB3 platform and the output of the online node was satisfyingly processed by the navigation stack. The local navigator that was created to ensure optimal distance from walls was tested in a real-world environment but the complete solution was only deployed in a simulated environment.
+</p>
+
 <p>
 The robot has very good performance navigating unknown environments. The only problem was that the Local Navigator had some difficulties with rooms with a lot of furniture such as chairs and tables. The problem was that the controller could easily get confused and stuck in such environments. This is not considered an issue as it's not the environment that the robot is intended to work in.
 </p>
 
 ## Discussion
+
 <p>
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
 </p>
