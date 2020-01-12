@@ -210,10 +210,12 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
   All the meeting protocols can be found<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Meeting-protocols"> here</a>.
 </p>
 
-## Links
+## References
 <p>
-  <a href="https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html">Cartographer</a>
+  [car] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
+  Obtained: 10/09/2019
 </p>
+
 <p>
 <a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
 </p>
