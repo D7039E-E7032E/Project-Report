@@ -170,7 +170,7 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 
 |    The Turtle World       |    The House World
 |:-------------------------:|:-------------------------:
-|  ![Ortographic view of the turtle world](gazebo_multi_turtlebot3_turtle_world.png) |  ![Ortographic view of the house world](gazebo_one_turtlebot3_house_world.png)
+|  ![Ortographic view of the turtle world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_one_turtlebot3_turtle_world.jpg) |  ![Ortographic view of the house world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_multi_turtlebot3_house_world.jpg)
 
 <p>
   The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure .. . The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3 would eventually explore was not used as there was no world such as this already provided. It was decided that this was uneccesary workload as there are real world environments at the university campus that satisfies our requirements.
