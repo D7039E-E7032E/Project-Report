@@ -64,7 +64,7 @@ Thus each pixel in the Image Space represents a sinusoid line in Hough Space. Wh
 
 ### 3.1 System design
 <p>
-The project has two major components in its design, the Turtlebot and the Central station. As illustrated in figure 1 both the Turtlebot and the Central station holds their own internal components.
+The project has two major components in its design, the Turtlebot and the Central station. As illustrated in figure 1 both the Turtlebot and the Central station holds its internal components.
 </p>
 
 System design
@@ -77,12 +77,12 @@ Figure 1 also shows that the Turtlebot has sensor data that feeds into the Raspb
 </p>
 
 <p>
-The Central station takes care of the merging process. Once complete it will send the merged map back to the Turtlebot through SSH SCP, where the global costmap recieves it.
+The Central station takes care of the merging process. Once complete it will send the merged map back to the Turtlebot through SSH SCP, where the global costmap receives it.
 </p>
 
 #### 3.1.1 The merging script
 <p>
-  The map merging script starts out by extending the length and height of the images to the initial hypotenuse, that way no matter how it is rotated it will still fit on the canvas. Then it runs the canny edge detection on the two images that are supposed to be merged. This is done to remove any area that is between the edges of the walls as it will clutter the hough images that are created. It will then create a hough image of each of the edge detected maps.
+  The map merging script starts by extending the length and height of the images to the initial hypotenuse, that way no matter how it is rotated it will still fit on the canvas. Then it runs the canny edge detection on the two images that are supposed to be merged. This is done to remove any area that is between the edges of the walls as it will clutter the hough images that are created. It will then create a hough image of each of the edge detected maps.
 </p>
 <p>
 Once the hough images are created it will run through each one of them and create an array of the maximum intensity on each angle where in our case the hough image has a resolution of 1280x720 pixels which means that each angle interval is 0.14°. This is the same as running the max function over each column.
@@ -98,7 +98,7 @@ The next step is the translation, this is also done according to the research pa
 
 ![TranslationEquation](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/TranslationEquation.png "Translation Equation")
 
-(which can also be written as B = AT<sub>O</sub>,) must be solved, this is done by calculating the matrices A and B. To find the 𝞺 and 𝞱, Algorithm 2 from the research paper is used which is similar to Algorithm 1, the difference is that 𝞺 is also considered when matching the peaks and instead of looking over the whole all 𝞱 when comparing it only compares within a short range of the reference point that it compares to. When all matching peaks have been found it calculates A and B by finding the respective 𝞺 and 𝞱 and puts it in the equation above where 𝞺1’ is the 𝞺 from the map that is to be moved. In T<sub>O</sub> the number in the first row is the offset for the x-coordinate and the lower row is for the y-coordinate. Once T<sub>O</sub> is calculated the new coordinates for the rotated map are calculated by offsetting the center of the rotated image from the center of the first image with the values from T<sub>O</sub>. This is where the maps are then merged and saved
+(which can also be written as B = AT<sub>O</sub>,) must be solved, this is done by calculating the matrices A and B. To find the 𝞺 and 𝞱, Algorithm 2 from the research paper is used which is similar to Algorithm 1, the difference is that 𝞺 is also considered when matching the peaks and instead of looking over the whole all 𝞱 when comparing it only compares within a short range of the reference point that it compares to. When all matching peaks have been found it calculates A and B by finding the respective 𝞺 and 𝞱 and puts it in the equation above where 𝞺1’ is the 𝞺 from the map that is to be moved. In T<sub>O</sub> the number in the first row is the offset for the x-coordinate and the lower row is for the y-coordinate. Once T<sub>O</sub> is calculated the new coordinates for the rotated map are calculated by offsetting the centre of the rotated image from the centre of the first image with the values from T<sub>O</sub>. This is where the maps are then merged and saved
 </p>
 
 ### 3.2 The simulator
@@ -147,11 +147,11 @@ The robot needs to be able to navigate unknown environments, a robust and reliab
 |:---------------------------------------------------------------------------------------:
 |	Figure 4
 
-In the illustration above the structure of the control system an its supporting components. 
+In the illustration above the structure of the control system and its supporting components. 
 
 #### 3.5.1 Global Navigator
 
-The purpose of the global navigator is to find a path the robot should follow to reach its goal. The the goal points are set manually and when the robot reaches it, a new one will be chosen by the operator. It will use information from the global map, a map of the combined scans from all robots. This was implemented using the already existing ROS package move_base that calculates a global path for the robot using Dynamic Window Approach Planner algorithm. 
+The purpose of the global navigator is to find a path the robot should follow to reach its goal. The goal points are set manually and when the robot reaches it, a new one will be chosen by the operator. It will use information from the global map, a map of the combined scans from all robots. This was implemented using the already existing ROS package move_base that calculates a global path for the robot using Dynamic Window Approach Planner algorithm. 
 
 The Global Navigator uses maps generated from cartographer, which is a slow process, combined with A-star not being a particular fast algorithm. This makes the Global Navigator a rather slow. This is solved with a Local Navigator.
 
@@ -161,7 +161,7 @@ The Local Navigator's purpose is to avoid obstacles and keeping an optimal dista
 
 ![Force](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/Force.svg)
 
-A custom ROS node was implemented to solve this. The node operates by giving all point seen by the lidar a virtual force, see equation above, which when combined creates an heat map. The node then solves the gradient of the heat map in the position of the robot, as in equation below. The value of *l<sub>p</sub>* is the distance to the point, and the values *c* and *n* is tuning-parameters, which was tuned manually. The resulting vector will then point in a direction away from all obstacles.
+A custom ROS node was implemented to solve this. The node operates by giving all point seen by the lidar a virtual force, see equation above, which when combined creates an heat map. The node then solves the gradient of the heat map in the position of the robot, as in the equation below. The value of *l<sub>p</sub>* is the distance to the point, and the values *c* and *n* is tuning-parameters, which was tuned manually. The resulting vector will then point in a direction away from all obstacles.
 
 ![Grad](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/Grad.svg)
 
@@ -179,7 +179,7 @@ It follows the direction given by the Local Navigator such that the point P in t
 
 ##### 3.5.3.1 System 
 
-To simplify the system, some assumptions were made. Because the robot is equipped with strong motors and wheels with a good grip, the assumption was made that the robot will not lose it's grip. The system is also assumed to have a near perfect step response. With these assumptions the system will be static, only changing when moved by actuator.
+To simplify the system, some assumptions were made. Because the robot is equipped with strong motors and wheels with a good grip, the assumption was made that the robot will not lose its grip. The system is also assumed to have a near-perfect step response. With these assumptions the system will be static, only changing when moved by actuator.
 
 |![systeI](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/systeI.svg) 
 |:-------------------------------------------------------------------------------------------------------------------:
@@ -189,7 +189,7 @@ By making the final assumption that the target point T, in the figure above, is 
 
 ![Asume](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/Asume.svg) 
 
-Then the system can be represented in a state space model seen in equation below, where Wmax is the maximum rotation speed of the robot.
+By making the final assumption that the target point T, in the figure above, is stationary than a new variable, *d*, can be introduced as in equation below.
 
 ![system](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/system.svg) 
 
@@ -199,11 +199,11 @@ Because the system is of first order, by using the assumptions from the previous
 
 ![rule](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/controlrool.svg) 
 
-The variable p, in equation above, was chosen in simulations for optimal performance.
+The variable p, in the equation above, was chosen in simulations for optimal performance.
 
 ### 3.6 Central station
 <p>
-Central station's purpose is to control and communicate with the TB3Bs. From the central station, all packages are runned through the scripts which contains the essential ROS commands. Also the ROS master node is started through ROS command roscore at central station. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrieve parameters from nodes. These parameters are XMLRPC data types which are XML equivalents of common data types.
+Central station's purpose is to control and communicate with the TB3Bs. From the central station, all packages are run through the scripts which contains the essential ROS commands. Also, the ROS master node is started through ROS command roscore at central station. Its role is to look over the other active nodes and help them locate each other. ROS Master also comes with a parameter server which will store and retrieve parameters from nodes. These parameters are XMLRPC data types which are XML equivalents of common data types.
 </p>
 
 ### 3.7 Communication
@@ -213,7 +213,7 @@ There are several options when it comes to data transfer between each robot and 
 </p>
 
 <p>
-Another solution is to allow each robot to venture out on its own and generate a local map that is stored locally on the robot. It would then return to its starting point after a certain condition has been met, be that in distance or time traveled. Once back at the starting point it could then transfer the local map to the central station where it would be merged into the global map. The updated global map would then be passed back to the robot and it could go back to exploring with the new data.
+Another solution is to allow each robot to venture out on its own and generate a local map that is stored locally on the robot. It would then return to its starting point after a certain condition has been met, be that in distance or time travelled. Once back at the starting point it could then transfer the local map to the central station where it would be merged into the global map. The updated global map would then be passed back to the robot and it could go back to exploring with the new data.
 </p>
 
 <p>
@@ -221,7 +221,7 @@ Naturally, this introduces some other limitations. For example, if one robot ret
 </p>
 
 <p>
-Ideally, the streaming solution would be the one used. If this is not attainable however a different path needs to be taken. Each of these solutions comes with certain compromises. They are all viable in different situations and it would, therefore, have to be decided on a case by case basis which solution is to be implemented. Consider instead an unexplored building on the ground level. In such a scenario satellite connectivity could be implemented to transfer data. Consider a cave that has been previously explored but not entirely mapped out. In such a scenario there could possibly exist access points for robots to connect to. In the end, one should commit to only employ a single solution for all tasks but instead consider the alternatives.
+Ideally, the streaming solution would be the one used. If this is not attainable however a different path needs to be taken. Each of these solutions comes with certain compromises. They are all viable in different situations and it would, therefore, have to be decided on a case by case basis which solution is to be implemented. Consider instead an unexplored building on the ground level. In such a scenario satellite connectivity could be implemented to transfer data. Consider a cave that has been previously explored but not entirely mapped out. In such a scenario there could exist access points for robots to connect to. In the end, one should commit to only employ a single solution for all tasks but instead consider the alternatives.
 </p>
 
 <p>
@@ -229,7 +229,7 @@ Data streaming capabilities is a straightforward implementation due to the under
 </p>
 
 <p>
-ROS topics currently support both UDP and TCP message transport. Using the already implemented TCP ensures minimal package loss. Since data isn’t stored indefinitely on each unit it becomes difficult to validate that all robots possess the same, and correct data. It's important that package loss is minimized. Otherwise the quality of the map could quickly deteriorate and present holes of missing data points on the global map.
+ROS topics currently support both UDP and TCP message transport. Using the already implemented TCP ensures minimal package loss. Since data isn’t stored indefinitely on each unit it becomes difficult to validate that all robots possess the same, and correct data. Package loss must be minimized. Otherwise, the quality of the map could quickly deteriorate and present holes of missing data points on the global map.
 </p>
 
 <p>
@@ -239,7 +239,7 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 #### 3.7.1 Network
 
 <p>
-The turtlebot and the central station both connect to a separate wifi network. Turtlenet is a wireless network setup to allow communication between the central station and robot. This network is propagated by a wireless router supplied by the control group at LTU. The wifi network already available at LTU could not be used due to limited access available to students, data could not be transferred from one point to another. In turn, this blocks the usage of wifi access points located in the testing area. When the robot is running it will, therefore, be limited in the travel range. 
+The TB3B and the central station both connect to a separate wifi network. Turtlenet is a wireless network setup to allow communication between the central station and robot. This network is propagated by a wireless router supplied by the control group at LTU. The wifi network already available at LTU could not be used due to limited access available to students, data could not be transferred from one point to another. In turn, this blocks the usage of wifi access points located in the testing area. When the robot is running it will, therefore, be limited in the travel range. 
 </p>
 
 ## 4 Results
@@ -345,7 +345,7 @@ The turtlebot and the central station both connect to a separate wifi network. T
 |	Figure 26	|	Figure 27	|
 
 <p>
-  The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure 26 and 27. The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3B would eventually explore was not used as there was no world such as this already provided. It was decided that this was uneccesary workload as there are real world environments at the university campus that satisfies our requirements.
+  The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure 26 and 27. The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3B would eventually explore was not used as there was no world such as this already provided. It was decided that this was unnecessary workload as there are real-world environments at the university campus that satisfies our requirements.
 </p>
 
 ### 4.3 Navigation
@@ -370,7 +370,7 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 
 ### 5.1 Simulation
 <p>
-  Gazebo publishes an odometry frame. This was less than ideal for the purpose of testing SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
+  Gazebo publishes an odometry frame. This was less than ideal to test SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
 
 
 <p>
@@ -379,17 +379,17 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 
 ### 5.2 Navigation
 <p>
-  Since Gazebo publishes an odometry source, the Cartographer odometry frame had to be blocked from being published. Doing otherwise resulted in errors with transforms. If the TB3B would be deployed in the real world, the Cartographer odometry frame could have been used in conjunction with an IMU frame to locate the TB3B as the odometry frame from Gazebo would not be present. How this would affect performance is not certain as no real world tests were carried out with the the complete solution.
+  Since Gazebo publishes an odometry source, the Cartographer odometry frame had to be blocked from being published. Doing otherwise resulted in errors with transforms. If the TB3B would be deployed in the real world, the Cartographer odometry frame could have been used in conjunction with an IMU frame to locate the TB3B as the odometry frame from Gazebo would not be present. How this would affect performance is not certain as no real-world tests were carried out with the complete solution.
 </p>
 
 <p>
-  The assumption was that the TB3B would navigate a completely flat 2D environment. This is of course not possible in the real world. For this reason, there might be performance issues with the solution in a real-world scenario. Ramp-like surfaces may lead to distortion in the mapping. No further investigation was put into the topic. Noise in sensor readings from the LiDAR may cause problems in a real-world scenario when executing SLAM. Cartographer has built-in filtering but no work was put into tuning the algorithm for it to reach its best performance. No testing was carried out to check whether the on-board IMU was sufficient enough for navigation purposes in the real world.
+  The assumption was that the TB3B would navigate a completely flat 2D environment. This is of course not possible in the real world. For this reason, there might be performance issues with the solution in a real-world scenario. Ramp-like surfaces may lead to distortion in the mapping. No further investigation was put into the topic. Noise in sensor readings from the LiDAR may cause problems in a real-world scenario when executing SLAM. Cartographer has built-in filtering but no work was put into tuning the algorithm for it to reach its best performance. No testing was carried out to check whether the onboard inertial measurement unit (IMU) was sufficient enough for navigation purposes in the real world.
 </p>
 
 ### 5.3 Data transfer
 
 <p>
-The data transfer method went through a couple revisions. Initially, the approach was to write a python script that would open python web sockets on each platform. The master node would then serve as a server and each robot would act as clients. Websockets are fairly intuitive to use and implement so it seemed like a good solution at first. After testing some issues became more clear. There are two big obstacles in the socket solution. Firstly it is down to multiprocessing, when you run a WebSocket it occupies the main process which blocks the robot from running any simultaneous processes. This can be solved in python by either running the script in a separate shell instance or by doing a multi-threading solution. Either way, it is sort of finicky to implement and the process has a tendency to hang. That leads to the second issue of sockets. When the socket loses connection the entire process will hang. This is problematic when the robot will be able to reconnect it can not do so on the old socket process. Instead, the old process needs to be closed and then the script would have to handle the opening of an entirely new socket process. This flaw is just down to the implementation of the python WebSocket and it is not much that can be done to sidestep this issue. Lastly, using WebSockets would require a validation process. Essentially there needs to be a way to verify that each byte transferred reaches its location. To do this every byte received would have to be verified manually. In conclusion, the python WebSocket is not a great solution for a system that is prone to disconnecting and places a large importance on complete package transfers.
+The data transfer method went through a couple revisions. Initially, the approach was to write a python script that would open python web sockets on each platform. The master node would then serve as a server and each robot would act as clients. Websockets are fairly intuitive to use and implement so it seemed like a good solution at first. After testing some issues became more clear. There are two big obstacles in the socket solution. Firstly it is down to multiprocessing, when you run a WebSocket it occupies the main process which blocks the robot from running any simultaneous processes. This can be solved in python by either running the script in a separate shell instance or by doing a multi-threading solution. Either way, it is sort of finicky to implement and the process tends to hang. That leads to the second issue of sockets. When the socket loses connection the entire process will hang. This is problematic when the robot will be able to reconnect it can not do so on the old socket process. Instead, the old process needs to be closed and then the script would have to handle the opening of an entirely new socket process. This flaw is just down to the implementation of the python WebSocket and it is not much that can be done to sidestep this issue. Lastly, using WebSockets would require a validation process. Essentially there needs to be a way to verify that each byte transferred reaches its location. To do this every byte received would have to be verified manually. In conclusion, the python WebSocket is not a great solution for a system that is prone to disconnecting and places a large importance on complete package transfers.
 
 SCP (secure copy) is functionality that comes with any Unix based distro. This command comes in handy in this project because it allows for each robot to copy and send files to a remote location over an SSH connection. The issues that exist for python WebSockets are already handled in the SCP implementation. The only downside is that it doesn’t allow for continuous data transfer in a publish/subscribe model.
 </p>
@@ -400,7 +400,7 @@ Getting all of the software properly installed and running took a lot of time in
 </p>
 
 <p>
-The Raspberry Pi had some problmes with handeling the load and starting to overheat. A swap memory partition was reserved onthe secondary memory to replicate RAM functionality when the primary memory is fully occupied. However, this was not enough if Rviz was runnning. So there would still be some issues with it being very slow and the heat.
+The Raspberry Pi had some problems with handling the load and starting to overheat. A swap memory partition was reserved on the secondary memory to replicate RAM functionality when the primary memory is fully occupied. However, this was not enough if Rviz was running. So there would still be some issues with it being very slow and the heat.
 </p>
 
 ### 5.5 Merging the maps
@@ -408,7 +408,7 @@ The Raspberry Pi had some problmes with handeling the load and starting to overh
 The map merging had mixed results, as is visible in the final merge in Figure 23. It is however clear that the rotation part of the script is working as intended but the translation is not quite working. This is due to several problems, the first obvious issue it the fact that the research paper had additional steps in the calculation of the translation matrix that wasn't implemented due to time constraints. This included tuning it using image entropy with the histogram of the image, we are also not verifying the merged map.
 </p>
 <p>
-Another issue is the maps we are using, if you look at Figure 15 and Figure 16 there are quite few peaks which means that there is not a lot of information it can use to detect the transformations needed. In its current for it is simply comparing the longest walls to each other and since there are so few walls there are few data points to work with. If the maps were larger with more walls the result would most likely be more accurate.
+Another issue is the maps we are using. If you look at Figure 15 and Figure 16 there are quite a few peaks which means that there is not a lot of information it can use to detect the transformations needed. In its current for it is simply comparing the longest walls to each other and since there are so few walls there are few data points to work with. If the maps were larger with more walls the result would most likely be more accurate.
 </p>
 
 ### 5.6 Further improvements
@@ -417,7 +417,7 @@ As it stands the robot will not function automatically in our test environment. 
 </p>
 
 <p>
-Currently the robots explored by trying to reach a point, set manually. An improvement would be to implement an algorithm that automate this process. The topic of automation opens up for many interesting problems. One such problem is the multi-armed bandit problem<sup>[9]</sup>. The TB3B would have to compute which goal pose would result in the biggest benefit. Machine learning could possibly provide solutions to this problem by recognizing patterns.
+Currently, the robots explored by trying to reach a point set manually. An improvement would be to implement an algorithm that automates this process. The topic of automation opens up many interesting problems. One such problem is the multi-armed bandit problem<sup>[9]</sup>. The TB3B would have to compute which goal pose would result in the biggest benefit. Machine learning could provide solutions to this problem by recognizing patterns.
 </p>
 
 <p>
@@ -425,8 +425,8 @@ In the scenario where multiple TB3B robots are deployed, some form of swarm navi
 </p>
 
 <p>
-Another improvement would be to have the robots be able to communicate with each other to ensure that the area is explored as efficiently as possible. An interesting question would be, which TB3B should be trusted to be correct? A Byzantine genrals problem<sup>[10]</sup> might occur if one or more of the TB3B robots provides the rest with faulty data. Some form of voting on which data to use would have to be carried out to not decrease the quality of the final result due to inconsistent information<sup>[11]</sup>. Additionally, some form of system to determine how trustworthy a robot is has to be implemented to ensure that the faulty robots do not pass bad data in the voting procedure.
-In subterrainean environments there is also a challenge of wether to keep the robots close to each other and risk that they have to explore the same space, which would be inefficient, or to spread them out and risk that robots choose inefficient routes because they were unable to recieve information of better routes.
+Another improvement would be to have the robots be able to communicate with each other to ensure that the area is explored as efficiently as possible. An interesting question would be, which TB3B should be trusted to be correct? A Byzantine generals problem<sup>[10]</sup> might occur if one or more of the TB3B robots provide the rest with faulty data. Some form of voting on which data to use would have to be carried out to not decrease the quality of the final result due to inconsistent information<sup>[11]</sup>. Additionally, some form of system to determine how trustworthy a robot has to be implemented to ensure that the faulty robots do not pass bad data in the voting procedure.
+In subterranean environments, there is also a challenge of whether to keep the robots close to each other and risk that they have to explore the same space, which would be inefficient, or to spread them out and risk that robots choose inefficient routes because they were unable to receive information of better routes.
 </p>
 
 # Acknowledgements
@@ -444,9 +444,10 @@ When researching, the main points of the read article should be written down in 
 In Git there is a strict workflow, nobody is allowed to push to the master branch, for example, the master branch is set to be protected, which means that the only way to add to it is by making new branches and creating pull requests. These pull requests have to be reviewed by at least two people, who if everything is good, will approve the pull request. When the pull request has two approved reviews it can be rebased and merged with the master branch.
 There is also an agreed-upon structure to the branch names where the name must describe loosely what they are for, for example, a branch named "patch-1" does not explain a lot, instead if it was called "#XX Implementing Cartographer". It first describes the issue related to the branch, and then an extremely short description of what the branch is used for.
 
-:----------------------:|
+
 |![Git Workflow](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/GitWorkflow.png)
-|	Figure 31	|	
+|:----------------------:
+|	Figure 31	
 
 To build the entire system the plan at the moment is to use Jenkins, this is an open-source continuous integration program which means it is not directly used to build the system, but plugins can be used to add a build functionality depending on the language used. Jenkins is also a testing and reporting platform which means that it can automatically test the code after it is built.
 </p>
