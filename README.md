@@ -514,4 +514,10 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
     [16] <a ref="www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub">“Research Advance in Swarm Robotics.” Defence Technology 9, no. 1 (March 2013): 18–39. https://www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub.<a>
 </p>
 
+<p>
+    [17] Sajad Saeedi, Liam Paull, Michael Trentini, Mae Seto, Howard Li. Map merging using hough peak matching. https://ieeexplore.ieee.org/document/6386114/citations#citations (2012), Obtained: 01/11/2020
+</p>
+
+
+
 
