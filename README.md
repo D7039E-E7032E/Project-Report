@@ -218,7 +218,7 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 ### Networking
 
 <p>
-The turtlebot and the central station both connects to a seperate wifi network. Turtlenet is a wireless network setup to allow communication between the central station and robot. This network is propagated by a wireless router supplied by the control group at LTU. The wifi network already available at LTU could not be used due to limited access available to students, data could not be transferred from one point to another. In turn, this blocks the usage of wifi access points located in the testing area. When the robot is running it will therefore be limited in travel range. 
+The turtlebot and the central station both connect to a separate wifi network. Turtlenet is a wireless network setup to allow communication between the central station and robot. This network is propagated by a wireless router supplied by the control group at LTU. The wifi network already available at LTU could not be used due to limited access available to students, data could not be transferred from one point to another. In turn, this blocks the usage of wifi access points located in the testing area. When the robot is running it will, therefore, be limited in the travel range. 
 </p>
 
 ## Results
