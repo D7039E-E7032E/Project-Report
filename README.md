@@ -223,8 +223,6 @@ Ideally, the streaming solution would be the one used. If this is not attainable
 Data streaming capabilities is a straightforward implementation due to the underlying ROS framework. ROS supports something they call ‘topics’ which is simply a way for nodes to publish data and other nodes to subscribe to that data stream. In this case, each robot would be a separate node to which the master node subscribes to. The master node is the central station. As for topics, they have anonymous publish/subscribe semantics, which decouples the production of information from its consumption. In general, nodes are not aware of who they are communicating with. Instead, nodes that are interested in data subscribe to the relevant topic; nodes that generate data publish to the relevant topic. There can be multiple publishers and subscribers to a topic. This would also allow each robot to subscribe to all other data feeds which would ensure that all robots are constantly aware of what the others are doing in the network. 
 </p>
 
-=======
->>>>>>> Removed merge issues
 <p>
 ROS topics currently support both UDP and TCP message transport. Using the already implemented TCP ensures minimal package loss. Since data isn’t stored indefinitely on each unit it becomes difficult to validate that all robots possess the same, and correct data. It's important that package loss is minimized. Otherwise the quality of the map could quickly deteriorate and present holes of missing data points on the global map.
 </p>
@@ -241,7 +239,6 @@ The turtlebot and the central station both connect to a separate wifi network. T
 
 ## Results
 
-<<<<<<< HEAD
 ### Simulation
 |    The camera added to TB3B (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
 |:---------------------------------------------:|:---------------------------------------------------------------------------:
@@ -280,84 +277,79 @@ The robot has very good performance navigating unknown environments. The only pr
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
 </p>
 
-<<<<<<< HEAD
 ### Simulation
 <p>
   Gazebo publishes an odometry frame. This was less than ideal for the purpose of testing SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
-=======
-=======
->>>>>>> Moved Merging Script explanation to System Design
-=======
->>>>>>> Removed merge issues
+
 ## Results
 
 ### Merging the maps
 <p>
 	The two maps we receive from the map saver:
   
-  |  ![Map 1)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map.png?raw=true) |  ![Map 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map2.png?raw=true)
+  |  ![Map 1)](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/map.png?raw=true) |  ![Map 2](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/map2.png?raw=true)
   |:---------------------------------------------:|:---------------------------------------------------------------------------:
-  |Image 1 |  Image 2
+  |Figure 1 |  Figure 2
   
   ---
   The two maps run through the extender:
   
-  |  ![Map 1 Extended)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend.png?raw=true) |  ![Map 2 Extended](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend2.png?raw=true)
+  |  ![Map 1 Extended)](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/extend.png?raw=true) |  ![Map 2 Extended](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/extend2.png?raw=true)
   |:---------------------------------------------:|:---------------------------------------------------------------------------:
-  |Image 3 | Image 4
+  |Figure 3 | Figure 4
   
   ---
   The two maps after the canny edge detection has been run:
 
-  |  ![Map 1 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesH.png?raw=true) |  ![Map 2 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edges2H.png?raw=true)
+  |  ![Map 1 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/edgesH.png?raw=true) |  ![Map 2 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/edges2H.png?raw=true)
   |:---------------------------------------------:|:---------------------------------------------------------------------------:
-  | Image 5 | Image 6
+  |Figure 5 | Figure 6
   
   ---
   The resulting hough images:
   
-  |  ![Map 1 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho.png?raw=true) |  ![Map 2 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho2.png?raw=true)
+  |  ![Map 1 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/ho.png?raw=true) |  ![Map 2 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/ho2.png?raw=true)
   |:---------------------------------------------:|:---------------------------------------------------------------------------:
-  | Image 7 | Image 8
+  | Figure 7 | Figure 8
   
   ---
   The maximum intensities over the theta of the hough images:
   
-  |  ![Map 1 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax.png?raw=true) 
+  |  ![Map 1 Max](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/tIFmax.png?raw=true) 
   |:---------------------------------------------:
-  | Image 9
+  | Figure 9
   
-  |  ![Map 2 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax2.png?raw=true)
+  |  ![Map 2 Max](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/tIFmax2.png?raw=true)
   |:---------------------------------------------:
-  | Image 10
+  | Figure 10
   
   ---
   The result of the periodic cross-correlation (and of note is that the minimum value on the graph is 41040527 and the maximum value is 42441750). 
   
-  |  ![Map Max Correlation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/maxCorr.png?raw=true)
+  |  ![Map Max Correlation](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/maxCorr.png?raw=true)
   |:---------------------------------------------:
-  | Image 11
+  | Figure 11
   
   ---
   The following two images are the given rotational hypotheses:
   
-  | ![Map 2 rotation hypothesis 1](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_-31_degrees.png?raw=true) |  ![Map 2 rotation hypothesis 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_58_degrees.png?raw=true)
+  | ![Map 2 rotation hypothesis 1](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rotated_-31_degrees.png?raw=true) |  ![Map 2 rotation hypothesis 2](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rotated_58_degrees.png?raw=true)
   |:---------------------------------------------:|:---------------------------------------------------------------------------:
-  | Image 12 | Image 13
+  | Figure 12 | Figure 13
   
   ---
   The following image is the chosen one by the algorithm after it has been run through the preprocessing until after the Canny edge detection:
   
-  | ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesR.png?raw=true)
+  | ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/edgesR.png?raw=true)
   |:---------------------------------------------:
-  | Image 14
+  | Figure 14
   
   ---
   The next image is the hough space and the result from running the max function over the columns:
   
-  |  ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/hoR.png?raw=true) |  ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmaxR.png?raw=true)
+  |  ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/hoR.png?raw=true) |  ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/tIFmaxR.png?raw=true)
   |:---------------------------------------------:|:---------------------------------------------------------------------------:
-  | Image 15 | Image 16
+  | Figure 15 | Figure 16
   
   ---
   The calculated translation matrix:
@@ -371,7 +363,6 @@ As Cartographer is an approach to this dilemma, different approaches such as the
   |:---------------------------------------------:
   | Image 17
 
->>>>>>> Added all images
 </p>
 
 ### Navigation
