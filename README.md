@@ -30,11 +30,11 @@ This model is however not appropriate for request and reply interactions between
 
 ### Cartographer
 <p>
-The Cartographer system is derived from Google’s repository in GitHub where the system is an open-source project. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
+The Cartographer system is derived from Google’s repository in GitHub [ggr] where the system is an open-source project. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
 </p>
 
 <p>
-Cartographer is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
+Cartographer [car] is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
 </p>
 
 <p>
@@ -338,6 +338,14 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
     [?] <a href="http://gazebosim.org/">Gazebo</a>
 </p>
 
+<p>
+    [car] Cartographer ROS. https://github.com/googlecartographer/cartographer_ros
+</p>
+
+<p>
+  [ggr] Cartographer Gitub Repository site. https://github.com/googlecartographer/cartographer_ros Obtained: 10/09/2019
+</p>
+   
 <p>
     [?] <a href="https://github.com/ros-planning/navigation">ROS Navigation Stack</a>
 </p>
