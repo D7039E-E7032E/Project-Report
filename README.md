@@ -323,68 +323,68 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 
 ## References
 <p>
-    [?] <a href="https://www.researchgate.net/publication/221063565_Multiple-Robot_Simultaneous_Localization_and_Mapping_A_Review">Saeedi, Sajad & Paull, Liam & Trentini, Michael & Li, Howard. (2011). Multiple-Robot Simultaneous Localization and Mapping: A Review. Journal of Field Robotics. 33. 853-858. 10.1109/IROS.2011.6048299.</a>
+    [1] <a href="https://www.researchgate.net/publication/221063565_Multiple-Robot_Simultaneous_Localization_and_Mapping_A_Review">Saeedi, Sajad & Paull, Liam & Trentini, Michael & Li, Howard. (2011). Multiple-Robot Simultaneous Localization and Mapping: A Review. Journal of Field Robotics. 33. 853-858. 10.1109/IROS.2011.6048299.</a>
 </p>
 
 <p>
-    [?] <a href="https://www.ros.org/about-ros/">Open Robotics. “About ROS.” https://www.ros.org/about-ros/ (accessed January 13, 2020).</a>
+    [2] <a href="https://www.ros.org/about-ros/">Open Robotics. “About ROS.” https://www.ros.org/about-ros/ (accessed January 13, 2020).</a>
 </p>
 
 <p>
-    [?] <a href="https://github.com/ros-visualization/rviz">Rviz</a>
+    [3] <a href="https://github.com/ros-visualization/rviz">Rviz</a>
 </p>
 
 <p>
-    [?] <a href="http://gazebosim.org/">Gazebo</a>
+    [4] <a href="http://gazebosim.org/">Gazebo</a>
 </p>
 
 <p>
-    [car] Cartographer ROS. https://github.com/googlecartographer/cartographer_ros
+    [5] Cartographer ROS. https://github.com/googlecartographer/cartographer_ros
 </p>
 
 <p>
-  [ggr] Cartographer Gitub Repository site. https://github.com/googlecartographer/cartographer_ros Obtained: 10/09/2019
+  [6] Cartographer Gitub Repository site. https://github.com/googlecartographer/cartographer_ros Obtained: 10/09/2019
 </p>
    
 <p>
-    [?] <a href="https://github.com/ros-planning/navigation">ROS Navigation Stack</a>
+    [7] <a href="https://github.com/ros-planning/navigation">ROS Navigation Stack</a>
 </p>
 
 <p>
-    [?] Ibid.
+    [8] Ibid.
 </p>
 
 <p>
-    [?] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
+    [9] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
   Obtained: 10/09/2019
 </p>
 
 <p>
-    [?] <a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
+    [10] <a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
 </p>
 
 <p>
-    [?] <a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
+    [11] <a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
 </p>
 
 <p>
-    [?] <a href="https://www.semanticscholar.org/paper/The-Multi-Armed-Bandit-Problem%3A-Decomposition-and-Katehakis-Veinott/e4fe28113fed71999a0db30a930e0b42d3ce55f1?tab=abstract&citingPapersSort=is-influential&citingPapersLimit=10&citingPapersOffset=0&citationIntent=background&year%5B0%5D=0&year%5B1%5D=0&citedPapersSort=is-influential&citedPapersLimit=10&citedPapersOffset=0">Katehakis, Michael N. and Arthur F. Veinott. “The Multi-Armed Bandit Problem: Decomposition and Computation.” Math. Oper. Res. 12 (1987): 262-268.</a>
+    [12] <a href="https://www.semanticscholar.org/paper/The-Multi-Armed-Bandit-Problem%3A-Decomposition-and-Katehakis-Veinott/e4fe28113fed71999a0db30a930e0b42d3ce55f1?tab=abstract&citingPapersSort=is-influential&citingPapersLimit=10&citingPapersOffset=0&citationIntent=background&year%5B0%5D=0&year%5B1%5D=0&citedPapersSort=is-influential&citedPapersLimit=10&citedPapersOffset=0">Katehakis, Michael N. and Arthur F. Veinott. “The Multi-Armed Bandit Problem: Decomposition and Computation.” Math. Oper. Res. 12 (1987): 262-268.</a>
 </p>
 
 <p>
-    [?] <a href="https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf">Leslie Lamport Robert Shosta k Marshall Pease “The Byzantine Generals Problem .” ACM Transactions on Programming Languages and Systems (July 1982): 382-401.</a>
+    [13] <a href="https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf">Leslie Lamport Robert Shosta k Marshall Pease “The Byzantine Generals Problem .” ACM Transactions on Programming Languages and Systems (July 1982): 382-401.</a>
 </p>
 
 <p>
-    [?] <a href="www.solutil.ch/kirrmann/FaultTolerance/20050418_HK_FT_Tutorial.pdf">Kirrmann, Hubert (n.d.). “Fault Tolerant Computing in Industrial Automation.” Switzerland: ABB Research Center. p. 94. </a>
+    [14] <a href="www.solutil.ch/kirrmann/FaultTolerance/20050418_HK_FT_Tutorial.pdf">Kirrmann, Hubert (n.d.). “Fault Tolerant Computing in Industrial Automation.” Switzerland: ABB Research Center. p. 94. </a>
 </p>
 
 <p>
-    [?] <a ref="https://www.mdpi.com/2076-3417/9/8/1702/htm">Cardona, Gustavo A.; Calderon, Juan M. 2019. "Robot Swarm Navigation and Victim Detection Using Rendezvous Consensus in Search and Rescue Operations." Appl. Sci. 9, no. 8: 1702. </a>
+    [15] <a ref="https://www.mdpi.com/2076-3417/9/8/1702/htm">Cardona, Gustavo A.; Calderon, Juan M. 2019. "Robot Swarm Navigation and Victim Detection Using Rendezvous Consensus in Search and Rescue Operations." Appl. Sci. 9, no. 8: 1702. </a>
 </p>
 
 <p>
-    [?] <a ref="www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub">“Research Advance in Swarm Robotics.” Defence Technology 9, no. 1 (March 2013): 18–39. https://www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub.<a>
+    [16] <a ref="www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub">“Research Advance in Swarm Robotics.” Defence Technology 9, no. 1 (March 2013): 18–39. https://www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub.<a>
 </p>
 
 
