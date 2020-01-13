@@ -272,6 +272,14 @@ Getting all of the software properly installed and running took a lot of time in
 The Raspberry Pi had some problmes with handeling the load and starting to overheat. A swap memory partition was reserved onthe secondary memory to replicate RAM functionality when the primary memory is fully occupied. However, this was not enough if Rviz was runnning. So there would still be some issues with it being very slow and the heat.
 </p>
 
+### Merging the maps
+<p>
+The map merging had mixed results, as is visible in the final merge in Figure 16. It is however clear that the rotation part of the script is working as intended but the translation is not quite working. This is due to a number of problems, the first obvious issue it the fact that the research paper had additional steps in the calculation of the translation matrix that wasn't implemented due to time constraints. This included tuning it using image entropy with the histogram of the image, we are also not verifying the merged map.
+</p>
+<p>
+Another issue is the maps we are using, if you look at Figure 9 and Figure 10 there are quite few peaks which means that there is not a lot of information it can use to detect the transformations needed. In its current for it is simply comparing the longest walls to each other and since there are so few walls there are few data points to work with. If the maps were larger with more walls the result would most likely be more accurate.
+</p>
+
 ### Further improvements
 <p>
 The script that makes the merging and map updating an automated process is one thing that could be improved. As of right now, it has been tested that the concept works, but it has not been used in real-time execution since there was no need to when getting the scans of the maps.
