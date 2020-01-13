@@ -337,14 +337,6 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 <p>
     [?] <a href="http://gazebosim.org/">Gazebo</a>
 </p>
-
-<p>
-    [car] Cartographer ROS. https://github.com/googlecartographer/cartographer_ros
-</p>
-
-<p>
-  [ggr] Cartographer Gitub Repository site. https://github.com/googlecartographer/cartographer_ros Obtained: 10/09/2019
-</p>
    
 <p>
     [?] <a href="https://github.com/ros-planning/navigation">ROS Navigation Stack</a>
@@ -355,8 +347,16 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 </p>
 
 <p>
-    [?] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
+    [car] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
   Obtained: 10/09/2019
+</p>
+
+<p>
+    [ced] Concept Canny Edge Detection. https://docs.opencv.org/3.4/d7/de1/tutorial_js_canny.html
+</p
+    
+<p>
+  [ggr] Cartographer Gitub Repository site. https://github.com/googlecartographer/cartographer_ros Obtained: 10/09/2019
 </p>
 
 <p>
