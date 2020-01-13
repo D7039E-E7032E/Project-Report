@@ -92,7 +92,7 @@ The next step in the process of finding the correct hypothesis, this is done usi
 <p>
 The next step is the translation, this is also done according to the research paper mentioned above. The paper states that to find the translation matrix T<sub>O</sub> the equation
 
-![TranslationEquation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/TranslationEquation.png "Translation Equation")
+![TranslationEquation](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/TranslationEquation.png "Translation Equation")
 (which can also be written as B = AT<sub>O</sub>,) must be solved, this is done by calculating the matrices A and B. To find the 𝞺 and 𝞱, Algorithm 2 from the research paper is used which is similar to Algorithm 1, the difference is that 𝞺 is also considered when matching the peaks and instead of looking over the whole all 𝞱 when comparing it only compares within a short range of the reference point that it compares to. When all matching peaks have been found it calculates A and B by finding the respective 𝞺 and 𝞱 and puts it in the equation above where 𝞺1’ is the 𝞺 from the map that is to be moved. In T<sub>O</sub> the number in the first row is the offset for the x-coordinate and the lower row is for the y-coordinate. Once T<sub>O</sub> is calculated the new coordinates for the rotated map are calculated by offsetting the center of the rotated image from the center of the first image with the values from T<sub>O</sub>. This is where the maps are then merged and saved
 </p>
 
