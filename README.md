@@ -304,6 +304,7 @@ As Cartographer is an approach to this dilemma, different approaches such as the
   ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesR.png?raw=true)
   ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/hoR.png?raw=true)
   ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmaxR.png?raw=true)
+  ![Translation Matrix](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/TranslationMatrix.PNG?raw=true)
   ![Merged Map](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/merged.png?raw=true)
 
 >>>>>>> Added all images
