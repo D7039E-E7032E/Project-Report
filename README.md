@@ -136,11 +136,11 @@ The Global Navigator uses maps generated from cartographer, which is a slow proc
 
 The Local Navigator's purpose is to avoid obstacles and keeping an optimal distance to walls, this to give optimal scanning quality. It will follow the direction of the path given by the Global Navigator.
 
-![Force](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Force.svg)
+![Force](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/Force.svg)
 
 A custom ROS node was implemented to solve this. The node operates by giving all point seen by the lidar a virtual force, see equation above, which when combined creates an heat map. The node then solves the gradient of the heat map in the position of the robot, as in equation below. The value of *l<sub>p</sub>* is the distance to the point, and the values *c* and *n* is tuning-parameters, which was tuned manually. The resulting vector will then point in a direction away from all obstacles.
 
-![Grad](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Grad.svg)
+![Grad](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/Grad.svg)
 
 Finely the gradient vector is combined with a directional vector which is the direction that the path is currently pointing. The resulting vector, if followed will take the robot toward its goal while avoiding obstacles and keep an equal distance to the walls on both sides.
 
