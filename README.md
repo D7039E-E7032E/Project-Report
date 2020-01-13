@@ -20,7 +20,7 @@ On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor
 
 ### 2.2 The ROS Framework
 <p>
-    The Robot Operating System<sup>[?]</sup> (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and SLAM. These two features were used extensively within the project.
+    The Robot Operating System<sup>[3]</sup> (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and SLAM. These two features were used extensively within the project.
 ROS also provides tools for simulation and visualization. These tools were used in debugging the application and test if the desired behaviour had been reached before the application was deployed into a real-world scenario for further benchmarking.
 A ROS application is made up of several nodes in a network called a ROS graph, where each node is a process that performs computation. Nodes are meant to operate on a very granular scale and a ROS application will, therefore, comprise of many nodes. In the case with the TB3B, there is, for example, one node controlling the LiDAR, one controlling the motors to the wheels and one node performing localization.
 Nodes communicate with each other by publishing messages to topics which are then subscribed to by other nodes. A message can contain a range of different data types. Standard primitive types are supported as are arrays of them.
@@ -31,11 +31,11 @@ This model is however not appropriate for request and reply interactions between
 
 ### 2.3 Cartographer
 <p>
-The Cartographer system is derived from Google’s repository in GitHub [?] where the system is an open-source project. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
+The Cartographer system is derived from Google’s repository in GitHub<sup>[4]</sup> where the system is an open-source project. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
 </p>
 
 <p>
-Cartographer [?] is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
+Cartographer is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
 </p>
 
 <p>
@@ -44,7 +44,7 @@ The usefulness of this system is in the quality of representing the environment,
 
 ### 2.4 Detecting walls in image
 <p>
-There are several steps to do when it comes to detecting lines in an image. For starters, only the necessary data such as the edges on the map representing the walls was wanted. The research paper (source) used the Canny Edge Detection approach to detect the edges in an image. Canny Edge Detection is a multi-step algorithm where the goal is to create a binary representation of the image where ones are walls and zeros are everything else. First, it’s using gaussian blur as filtering out noises before running what is known as Sobel edge detection. This ensures that much of the unwanted edges are removed. From here threshold and hysteresis are applied to result in the binary image with only the edges left.
+There are several steps to do when it comes to detecting lines in an image. For starters, only the necessary data such as the edges on the map representing the walls was wanted. The research paper used the Canny Edge Detection<sup>[5]</sup> approach to detect the edges in an image. Canny Edge Detection is a multi-step algorithm where the goal is to create a binary representation of the image where ones are walls and zeros are everything else. First, it’s using gaussian blur as filtering out noises before running what is known as Sobel edge detection. This ensures that much of the unwanted edges are removed. From here threshold and hysteresis are applied to result in the binary image with only the edges left.
 </p>
 
 <p>
@@ -99,8 +99,8 @@ The next step is the translation, this is also done according to the research pa
 
 ### 3.2 The simulator
 <p>
-The software Rviz [?] is a 3D visualizer created for the ROS framework. It was used to visualize published information from the robot and also used in a later stage to issue commands to the robot for navigation purposes. The software was chosen because of its tight integration with the ROS framework and ease of use.
-The TB3B and the world it was navigating was simulated using the software Gazebo [?]. Gazebo is unlike Rviz, not developed solely for use within ROS. A set of interfaces is therefore provided with ROS for ROS-like communication with Gazebo using messages, services and still allowing for dynamic reconfigure. This made Gazebo the obvious choice for the simulation of the TB3B and its interaction with the simulated world.
+The software Rviz<sup>[6]</sup> is a 3D visualizer created for the ROS framework. It was used to visualize published information from the robot and also used in a later stage to issue commands to the robot for navigation purposes. The software was chosen because of its tight integration with the ROS framework and ease of use.
+The TB3B and the world it was navigating was simulated using the software Gazebo [7]. Gazebo is unlike Rviz, not developed solely for use within ROS. A set of interfaces is therefore provided with ROS for ROS-like communication with Gazebo using messages, services and still allowing for dynamic reconfigure. This made Gazebo the obvious choice for the simulation of the TB3B and its interaction with the simulated world.
 </p>
 
 <p>
@@ -130,7 +130,7 @@ The Cartographer ROS node            |  The Navigation Stack
 
 
 <p>
-The navigation system comprised SLAM provided by the Cartographer online node and a library of navigation packages known as the ROS Navigation Stack [?]. The submap list of Cartographer was sent as map data into the stack and then globally and locally planned upon. The local planner that was used in the first tests was the default Dynamic Window Approach Planner (DWAP) but later in the project, a new local planner was innovated and implemented into the ROS Navigation Stack.
+The navigation system comprised SLAM provided by the Cartographer online node and a library of navigation packages known as the ROS Navigation Stack<sup>[8]</sup>. The submap list of Cartographer was sent as map data into the stack and then globally and locally planned upon. The local planner that was used in the first tests was the default Dynamic Window Approach Planner (DWAP) but later in the project, a new local planner was innovated and implemented into the ROS Navigation Stack.
 The global plan was generated by the default global planner known simply as global_planner.
 </p>
 
@@ -240,51 +240,7 @@ The turtlebot and the central station both connect to a separate wifi network. T
 
 ## 4 Results
 
-### 4.1 Simulation
-|    The camera added to TB3B (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
-|:---------------------------------------------:|:---------------------------------------------------------------------------:
-|  ![The camera added to TB3](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/default_gzclient_camera(1)-2019-10-07T09_31_48.707295.jpg) |  ![The transform frame tree](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/frames_one_turtlebot3.png)
-
-<p>
-  The camera was successfully added to the already provided TB3B URDF and functioned as a real-world camera would have. No mesh data was created to simulate the visual appearance of the camera. The simulated TB3B and the added camera is shown in figure .. . The camera is displayed as a grey cube. The output from the camera mounted to the TB3B model in the simulated environment can be seen in figure .. . The camera was not integrated into the real world system as it was discovered that it would not be used by the software in any meaningful way.
-  Figure .. shows the TF tree that was used during the simulations. The odometry frame that was published from Gazebo was used instead of the odometry frame that is provided by Cartographer to remove transform re-parenting errors.
-  Multiple TB3B with the developed software solution were simulated. These simulations were mostly unsuccessful as there were a multitude of problems with transforms being incorrectly interpreted by Gazebo, e.g. multiple TB3B sharing the same virtual space in the simulated environment. 
-</p>
-
-|    The Turtle World       |    The House World
-|:-------------------------:|:-------------------------:
-|  ![Ortographic view of the turtle world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_one_turtlebot3_turtle_world.jpg) |  ![Ortographic view of the house world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_multi_turtlebot3_house_world.jpg)
-
-<p>
-  The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure .. . The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3B would eventually explore was not used as there was no world such as this already provided. It was decided that this was uneccesary workload as there are real world environments at the university campus that satisfies our requirements.
-</p>
-
-### 4.2 Navigation
-|   The ROS-graph used for navigating. | Screenshot of viewport in Rviz.  |  Captured frame of the camera feed.
-|:------------------------------------:|:--------------------------------:|:-----------------------------------:
-|![The Naivigation Solution](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rosgraph_one_turtlebot3.png)  | ![Screenshot of viewport in Rviz.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rviz_one_turtlebot3.png)  | ![Captured frame of the camera feed.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/camera_one_turtlebot3.png)
-
-<p>
-  Cartographer was successfully implemented on the TB3B platform and the output of the online node was satisfyingly processed by the navigation stack. The local navigator that was created to ensure optimal distance from walls was tested in a real-world environment but the complete solution was only deployed in a simulated environment.
-</p>
-
-<p>
-The robot has very good performance navigating unknown environments. The only problem was that the Local Navigator had some difficulties with rooms with a lot of furniture such as chairs and tables. The problem was that the controller could easily get confused and stuck in such environments. This is not considered an issue as it's not the environment that the robot is intended to work in.
-</p>
-
-## 5 Discussion
-
-<p>
-As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
-</p>
-
-### 5.1 Simulation
-<p>
-  Gazebo publishes an odometry frame. This was less than ideal for the purpose of testing SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
-
-## 6 Results
-
-### 6.1 Merging the maps
+### 4.1 Merging the maps
 <p>
 	The two maps we receive from the map saver:
   
@@ -366,7 +322,54 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 
 </p>
 
-### 6.2 Navigation
+### 4.2 Simulation
+|    The camera added to TB3B (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
+|:---------------------------------------------:|:---------------------------------------------------------------------------:
+|  ![The camera added to TB3](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/default_gzclient_camera(1)-2019-10-07T09_31_48.707295.jpg) |  ![The transform frame tree](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/frames_one_turtlebot3.png)
+
+<p>
+  The camera was successfully added to the already provided TB3B URDF and functioned as a real-world camera would have. No mesh data was created to simulate the visual appearance of the camera. The simulated TB3B and the added camera is shown in figure .. . The camera is displayed as a grey cube. The output from the camera mounted to the TB3B model in the simulated environment can be seen in figure .. . The camera was not integrated into the real world system as it was discovered that it would not be used by the software in any meaningful way.
+  Figure .. shows the TF tree that was used during the simulations. The odometry frame that was published from Gazebo was used instead of the odometry frame that is provided by Cartographer to remove transform re-parenting errors.
+  Multiple TB3B with the developed software solution were simulated. These simulations were mostly unsuccessful as there were a multitude of problems with transforms being incorrectly interpreted by Gazebo, e.g. multiple TB3B sharing the same virtual space in the simulated environment. 
+</p>
+
+|    The Turtle World       |    The House World
+|:-------------------------:|:-------------------------:
+|  ![Ortographic view of the turtle world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_one_turtlebot3_turtle_world.jpg) |  ![Ortographic view of the house world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_multi_turtlebot3_house_world.jpg)
+
+<p>
+  The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure .. . The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3B would eventually explore was not used as there was no world such as this already provided. It was decided that this was uneccesary workload as there are real world environments at the university campus that satisfies our requirements.
+</p>
+
+### 4.3 Navigation
+|   The ROS-graph used for navigating. | Screenshot of viewport in Rviz.  |  Captured frame of the camera feed.
+|:------------------------------------:|:--------------------------------:|:-----------------------------------:
+|![The Naivigation Solution](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rosgraph_one_turtlebot3.png)  | ![Screenshot of viewport in Rviz.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rviz_one_turtlebot3.png)  | ![Captured frame of the camera feed.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/camera_one_turtlebot3.png)
+
+<p>
+  Cartographer was successfully implemented on the TB3B platform and the output of the online node was satisfyingly processed by the navigation stack. The local navigator that was created to ensure optimal distance from walls was tested in a real-world environment but the complete solution was only deployed in a simulated environment.
+</p>
+
+<p>
+The robot has very good performance navigating unknown environments. The only problem was that the Local Navigator had some difficulties with rooms with a lot of furniture such as chairs and tables. The problem was that the controller could easily get confused and stuck in such environments. This is not considered an issue as it's not the environment that the robot is intended to work in.
+</p>
+
+## 5 Discussion
+
+<p>
+As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
+</p>
+
+### 5.1 Simulation
+<p>
+  Gazebo publishes an odometry frame. This was less than ideal for the purpose of testing SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
+
+
+<p>
+As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
+</p>
+
+### 5.2 Navigation
 <p>
   Since Gazebo publishes an odometry source, the Cartographer odometry frame had to be blocked from being published. Doing otherwise resulted in errors with transforms. If the TB3B would be deployed in the real world, the Cartographer odometry frame could have been used in conjunction with an IMU frame to locate the TB3B as the odometry frame from Gazebo would not be present. How this would affect performance is not certain as no real world tests were carried out with the the complete solution.
 </p>
@@ -375,7 +378,7 @@ As Cartographer is an approach to this dilemma, different approaches such as the
   The assumption was that the TB3B would navigate a completely flat 2D environment. This is of course not possible in the real world. For this reason, there might be performance issues with the solution in a real-world scenario. Ramp-like surfaces may lead to distortion in the mapping. No further investigation was put into the topic. Noise in sensor readings from the LiDAR may cause problems in a real-world scenario when executing SLAM. Cartographer has built-in filtering but no work was put into tuning the algorithm for it to reach its best performance. No testing was carried out to check whether the on-board IMU was sufficient enough for navigation purposes in the real world.
 </p>
 
-### 6.3 Data transfer
+### 5.3 Data transfer
 
 <p>
 The data transfer method went through a couple revisions. Initially, the approach was to write a python script that would open python web sockets on each platform. The master node would then serve as a server and each robot would act as clients. Websockets are fairly intuitive to use and implement so it seemed like a good solution at first. After testing some issues became more clear. There are two big obstacles in the socket solution. Firstly it is down to multiprocessing, when you run a WebSocket it occupies the main process which blocks the robot from running any simultaneous processes. This can be solved in python by either running the script in a separate shell instance or by doing a multi-threading solution. Either way, it is sort of finicky to implement and the process has a tendency to hang. That leads to the second issue of sockets. When the socket loses connection the entire process will hang. This is problematic when the robot will be able to reconnect it can not do so on the old socket process. Instead, the old process needs to be closed and then the script would have to handle the opening of an entirely new socket process. This flaw is just down to the implementation of the python WebSocket and it is not much that can be done to sidestep this issue. Lastly, using WebSockets would require a validation process. Essentially there needs to be a way to verify that each byte transferred reaches its location. To do this every byte received would have to be verified manually. In conclusion, the python WebSocket is not a great solution for a system that is prone to disconnecting and places a large importance on complete package transfers.
@@ -383,7 +386,7 @@ The data transfer method went through a couple revisions. Initially, the approac
 SCP (secure copy) is functionality that comes with any Unix based distro. This command comes in handy in this project because it allows for each robot to copy and send files to a remote location over an SSH connection. The issues that exist for python WebSockets are already handled in the SCP implementation. The only downside is that it doesn’t allow for continuous data transfer in a publish/subscribe model.
 </p>
 
-### 6.4 Difficulties during the project
+### 5.4 Difficulties during the project
 <p>
 Getting all of the software properly installed and running took a lot of time in this project. This could have been avoided by having a better picture of what was needed in the beginning. There could have been more research in what should be done and added to the project.
 </p>
@@ -392,7 +395,7 @@ Getting all of the software properly installed and running took a lot of time in
 The Raspberry Pi had some problmes with handeling the load and starting to overheat. A swap memory partition was reserved onthe secondary memory to replicate RAM functionality when the primary memory is fully occupied. However, this was not enough if Rviz was runnning. So there would still be some issues with it being very slow and the heat.
 </p>
 
-### 6.5 Merging the maps
+### 5.5 Merging the maps
 <p>
 The map merging had mixed results, as is visible in the final merge in Figure 16. It is however clear that the rotation part of the script is working as intended but the translation is not quite working. This is due to several problems, the first obvious issue it the fact that the research paper had additional steps in the calculation of the translation matrix that wasn't implemented due to time constraints. This included tuning it using image entropy with the histogram of the image, we are also not verifying the merged map.
 </p>
@@ -400,13 +403,13 @@ The map merging had mixed results, as is visible in the final merge in Figure 16
 Another issue is the maps we are using, if you look at Figure 9 and Figure 10 there are quite few peaks which means that there is not a lot of information it can use to detect the transformations needed. In its current for it is simply comparing the longest walls to each other and since there are so few walls there are few data points to work with. If the maps were larger with more walls the result would most likely be more accurate.
 </p>
 
-### 6.6 Further improvements
+### 5.6 Further improvements
 <p>
 As it stands the robot will not function automatically in our test environment. Further improvements would be to improve the shell script that automates a list of tasks. When a global navigation point has been given to the robot it will start moving. What the shell script needs to handle is the continuous updating of the global map known to each robot. This means that the script needs to run SCP commands to transfer the local map to the central station. Then there needs to be a script running on the central station which sends the global map back to the robot when a merge has been completed.
 </p>
 
 <p>
-Currently the robots explored by trying to reach a point, set manually. An improvement would be to implement an algorithm that automate this process. The topic of automation opens up for many interesting problems. One such problem is the multi-armed bandit problem<sup>[?]</sup>. The TB3B would have to compute which goal pose would result in the biggest benefit. Machine learning could possibly provide solutions to this problem by recognizing patterns.
+Currently the robots explored by trying to reach a point, set manually. An improvement would be to implement an algorithm that automate this process. The topic of automation opens up for many interesting problems. One such problem is the multi-armed bandit problem<sup>[9]</sup>. The TB3B would have to compute which goal pose would result in the biggest benefit. Machine learning could possibly provide solutions to this problem by recognizing patterns.
 </p>
 
 <p>
@@ -414,7 +417,7 @@ In the scenario where multiple TB3B robots are deployed, some form of swarm navi
 </p>
 
 <p>
-Another improvement would be to have the robots be able to communicate with each other to ensure that the area is explored as efficiently as possible. An interesting question would be, which TB3B should be trusted to be correct? A Byzantine genrals problem<sup>[?]</sup> might occur if one or more of the TB3B robots provides the rest with faulty data. Some form of voting on which data to use would have to be carried out to not decrease the quality of the final result due to inconsistent information<sup>[?]</sup>. Additionally, some form of system to determine how trustworthy a robot is has to be implemented to ensure that the faulty robots do not pass bad data in the voting procedure.
+Another improvement would be to have the robots be able to communicate with each other to ensure that the area is explored as efficiently as possible. An interesting question would be, which TB3B should be trusted to be correct? A Byzantine genrals problem<sup>[10]</sup> might occur if one or more of the TB3B robots provides the rest with faulty data. Some form of voting on which data to use would have to be carried out to not decrease the quality of the final result due to inconsistent information<sup>[11]</sup>. Additionally, some form of system to determine how trustworthy a robot is has to be implemented to ensure that the faulty robots do not pass bad data in the voting procedure.
 In subterrainean environments there is also a challenge of wether to keep the robots close to each other and risk that they have to explore the same space, which would be inefficient, or to spread them out and risk that robots choose inefficient routes because they were unable to recieve information of better routes.
 </p>
 
@@ -446,72 +449,51 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 </p>
 
 <p>
-    [2] <a href="https://www.ros.org/about-ros/">Open Robotics. “About ROS.” https://www.ros.org/about-ros/ (accessed January 13, 2020).</a>
+    [2] Sajad Saeedi, Liam Paull, Michael Trentini, Mae Seto, Howard Li. Map merging using hough peak matching. https://ieeexplore.ieee.org/document/6386114/citations#citations (2012), Obtained: 01/11/2020
 </p>
 
 <p>
-    [3] <a href="https://github.com/ros-visualization/rviz">Rviz</a>
+    [3] <a href="https://www.ros.org/about-ros/">Open Robotics. “About ROS.” https://www.ros.org/about-ros/ (accessed 13/08/2020).</a>
 </p>
 
 <p>
-    [4] <a href="http://gazebosim.org/">Gazebo</a>
+  [4] <a href="https://github.com/googlecartographer/cartographer_ros">Googlecartographer. "cartographer_ros." https://github.com/googlecartographer/cartographer_ros (accessed 13/01/2020) </a>
 </p>
 
 <p>
-    [5] Cartographer ROS. https://github.com/googlecartographer/cartographer_ros
+    [5] <a href="https://docs.opencv.org/3.4/d7/de1/tutorial_js_canny.html">OpenCV. "Canny Edge Detection". https://docs.opencv.org/3.4/d7/de1/tutorial_js_canny.html (Accessed 13/01/2020)"</a>
 </p>
 
 <p>
-  [6] Cartographer Gitub Repository site. https://github.com/googlecartographer/cartographer_ros Obtained: 10/09/2019
+    [6] <a href="https://github.com/ros-visualization/rviz">Ros-visualization. "Rviz. https://github.com/ros-visualization/rviz (Accessed 13/01/2020)"</a>
 </p>
 
 <p>
-    [7] Concept Canny Edge Detection. https://docs.opencv.org/3.4/d7/de1/tutorial_js_canny.html
-</p
-   
-<p>
-    [8] <a href="https://github.com/ros-planning/navigation">ROS Navigation Stack</a>
+    [7] <a href="http://gazebosim.org/">Open Source Robotics Foundation. "Gazebo. https://github.com/ros-visualization/rviz (Accessed 13/01/2020)</a>
 </p>
 
 <p>
-    [9] Ibid.
+    [8] <a href="https://github.com/ros-planning/navigation">Ros-planning. "Ros Navigation Stack. https://github.com/ros-planning/navigation (Accessed 13/01/2020)</a>
 </p>
 
 <p>
-    [10] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
-  Obtained: 10/09/2019
+    [9] <a href="https://www.semanticscholar.org/paper/The-Multi-Armed-Bandit-Problem%3A-Decomposition-and-Katehakis-Veinott/e4fe28113fed71999a0db30a930e0b42d3ce55f1?tab=abstract&citingPapersSort=is-influential&citingPapersLimit=10&citingPapersOffset=0&citationIntent=background&year%5B0%5D=0&year%5B1%5D=0&citedPapersSort=is-influential&citedPapersLimit=10&citedPapersOffset=0">Katehakis, Michael N. and Arthur F. Veinott. “The Multi-Armed Bandit Problem: Decomposition and Computation.” Math. Oper. Res. 12 (1987): 262-268.</a>
 </p>
 
 <p>
-    [11] <a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
+    [10] <a href="https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf">Leslie Lamport Robert Shosta k Marshall Pease “The Byzantine Generals Problem .” ACM Transactions on Programming Languages and Systems (July 1982): 382-401.</a>
 </p>
 
 <p>
-    [12] <a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
+    [11] <a href="www.solutil.ch/kirrmann/FaultTolerance/20050418_HK_FT_Tutorial.pdf">Kirrmann, Hubert (n.d.). “Fault Tolerant Computing in Industrial Automation.” Switzerland: ABB Research Center. p. 94. </a>
 </p>
 
 <p>
-    [13] <a href="https://www.semanticscholar.org/paper/The-Multi-Armed-Bandit-Problem%3A-Decomposition-and-Katehakis-Veinott/e4fe28113fed71999a0db30a930e0b42d3ce55f1?tab=abstract&citingPapersSort=is-influential&citingPapersLimit=10&citingPapersOffset=0&citationIntent=background&year%5B0%5D=0&year%5B1%5D=0&citedPapersSort=is-influential&citedPapersLimit=10&citedPapersOffset=0">Katehakis, Michael N. and Arthur F. Veinott. “The Multi-Armed Bandit Problem: Decomposition and Computation.” Math. Oper. Res. 12 (1987): 262-268.</a>
+    [12] <a ref="https://www.mdpi.com/2076-3417/9/8/1702/htm">Cardona, Gustavo A.; Calderon, Juan M. 2019. "Robot Swarm Navigation and Victim Detection Using Rendezvous Consensus in Search and Rescue Operations." Appl. Sci. 9, no. 8: 1702. </a>
 </p>
 
 <p>
-    [14] <a href="https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf">Leslie Lamport Robert Shosta k Marshall Pease “The Byzantine Generals Problem .” ACM Transactions on Programming Languages and Systems (July 1982): 382-401.</a>
-</p>
-
-<p>
-    [15] <a href="www.solutil.ch/kirrmann/FaultTolerance/20050418_HK_FT_Tutorial.pdf">Kirrmann, Hubert (n.d.). “Fault Tolerant Computing in Industrial Automation.” Switzerland: ABB Research Center. p. 94. </a>
-</p>
-
-<p>
-    [16] <a ref="https://www.mdpi.com/2076-3417/9/8/1702/htm">Cardona, Gustavo A.; Calderon, Juan M. 2019. "Robot Swarm Navigation and Victim Detection Using Rendezvous Consensus in Search and Rescue Operations." Appl. Sci. 9, no. 8: 1702. </a>
-</p>
-
-<p>
-    [17] <a ref="www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub">“Research Advance in Swarm Robotics.” Defence Technology 9, no. 1 (March 2013): 18–39. https://www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub.<a>
-</p>
-
-<p>
-    [18] Sajad Saeedi, Liam Paull, Michael Trentini, Mae Seto, Howard Li. Map merging using hough peak matching. https://ieeexplore.ieee.org/document/6386114/citations#citations (2012), Obtained: 01/11/2020
+    [13] <a ref="www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub">“Research Advance in Swarm Robotics.” Defence Technology 9, no. 1 (March 2013): 18–39. https://www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub.<a>
 </p>
 
 
