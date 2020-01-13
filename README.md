@@ -79,28 +79,22 @@ The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/P
 
 ### The simulator
 <p>
-The software that will visualize what the robot experiences is RViz. This software will also be chosen because of its tight integration with the ROS framework.
-A TB3B will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
+The software Rviz [?] is a 3D visualizer created for the ROS framework. It was used to visualize published information from the robot and also used in a later stage to issue commands to the robot for navigation purposes. The software was chosen because of its tight integration with the ROS framework and ease of use.
+The TB3B and the world it was navigating was simulated using the software Gazebo [?]. Gazebo is unlike Rviz, not developed solely for use within ROS. A set of interfaces is therefore provided with ROS for ROS-like communication with Gazebo using messages, services and still allowing for dynamic reconfigure. This made Gazebo the obvious choice for the simulation of the TB3B and its interaction with the simulated world.
 </p>
 
 <p>
-The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visualized using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
-</p>
-
-<p>
-The software Gazebo made use of a file format called Simulation Description Format (SDF). SDF was developed to solve the shortcomings of URDF. SDF specifies additional properties such as friction, lights, heightmaps etc. Another improvement that SDF has is that it does not break proper formatting with heavy use of XML attributes and is thus more flexible in its implementation. 
+Rviz makes use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B was used to describe the robot and its capabilities to Rviz. A camera was to be added to the real world robot and therefore a camera had to be added to the URDF describing the simulated robot. The camera was however never added to the real world robot. URDF files are written in XML by using the macro language xacro. This made the URDF files easier to maintain and to read.
+The software Gazebo makes use of a file format called Simulation Description Format (SDF). SDF was developed to solve the shortcomings of URDF. SDF specifies additional properties such as friction, lights, height maps etc. Another improvement that SDF has is that it does not break proper formatting with heavy use of XML attributes and is thus more flexible in its implementation. 
 It is possible to convert URDF into SDF. This allows a URDF file be used with Gazebo after it has been converted to SDF. This process was carried out automatically.
 </p>
 
 <p>
-ROS makes use of topics to send messages from a publisher to a subscriber. Gazebo published simulation messages which were computed within the ROS framework and then published to RViz for visualization.
-The first tests were carried out by following the tutorials available for the the TB3B.
+ROS makes use of topics to send messages from a publisher to a subscriber. Gazebo published simulation messages which were computed within the ROS framework and then published to Rviz for visualization.
+The first tests were carried out by following the tutorials available for the TB3B.
 The goal was first to make sure that the camera had been implemented correctly and thus Rviz was made to only visualize the camera feed.
 The script that described what to visualize was extended significantly as the project went on.
-</p>
-
-<p>
-By using Rviz, a 2D goal point was successfully published to the TB3B and all relevant topics were recieved correctly.
+By using Rviz, a 2D goal point was successfully published to the TB3B and all relevant topics were received correctly.
 By following the earlier mentioned tutorials for the TB3B it became possible to navigate on a known map in a simulated world with the modified TB3B model.
 </p>
 
@@ -116,7 +110,7 @@ The Cartographer ROS node            |  The Navigation Stack
 
 
 <p>
-The navigation system comprised SLAM provided by the Cartographer online node and a library of navigation packages known as the ROS Navigation Stack [2]. The submap list of Cartographer was sent as map data into the stack and then globally and locally planned upon. The local planner that was used in the first tests was the default Dynamic Window Approach Planner (DWAP) but later in the project, a new local planner was innovated and implemented into the ROS Navigation Stack.
+The navigation system comprised SLAM provided by the Cartographer online node and a library of navigation packages known as the ROS Navigation Stack [?]. The submap list of Cartographer was sent as map data into the stack and then globally and locally planned upon. The local planner that was used in the first tests was the default Dynamic Window Approach Planner (DWAP) but later in the project, a new local planner was innovated and implemented into the ROS Navigation Stack.
 The global plan was generated by the default global planner known simply as global_planner.
 </p>
 
@@ -256,6 +250,18 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 
 ## References
 <p>
+  [?] <a href="https://github.com/ros-visualization/rviz"> Rviz</a>
+</p>
+<p>
+  [?] <a href="http://gazebosim.org/"> Gazebo</a>
+</p>
+<p>
+  [?] <a href="https://github.com/ros-planning/navigation"> ROS Navigation Stack</a>
+</p>
+<p>
+ [?] Ibid.
+</p>
+<p>
   [car] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
   Obtained: 10/09/2019
 </p>
@@ -266,3 +272,5 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 <p>
 <a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
 </p>
+
+
