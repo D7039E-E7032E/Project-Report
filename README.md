@@ -30,11 +30,11 @@ This model is however not appropriate for request and reply interactions between
 
 ### Cartographer
 <p>
-The Cartographer system is derived from Google’s repository in GitHub [ggr] where the system is an open-source project. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
+The Cartographer system is derived from Google’s repository in GitHub [?] where the system is an open-source project. This system’s main focus is to be a solution to the simultaneous localization and mapping (SLAM) problem that is about how one can do both localization and mapping at the same time. 
 </p>
 
 <p>
-Cartographer [car] is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
+Cartographer [?] is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
 </p>
 
 <p>
@@ -202,7 +202,7 @@ Central station's purpose is to control and communicate with the TB3Bs. From the
 </p>
 
 ### Communication
-<<<<<<< HEAD
+
 <p>
 There are several options when it comes to data transfer between each robot and the central system. In this project, multiple solutions have been considered. Continuous data streaming would be the ideal solution since it would allow the system to update the global map from all sources continuously during runtime. This is however hard to implement in an unexplored cave system were connectivity is likely to be limited. This limitation is mainly caused by the nature of this project. It goes without saying that in an unexplored environment there will not be any wireless access points for the robot to connect to during runtime. Wireless connectivity will also be blocked by the thick cave walls. Satellite connection is not viable either due to the robot being located underground. A wired connection is a somewhat reasonable solution although it presents other, more physical, limitations. For example, it would limit the range each robot could go before being stopped by the wire. It could also cause problems if the wire gets stuck on something in the terrain or if the robot gets tangled in the wire.
 </p>
