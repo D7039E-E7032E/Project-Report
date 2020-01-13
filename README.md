@@ -2,8 +2,9 @@
 
 ## Introduction 
 <p>
-Unknown subterranean areas hold a certain risk for humans to discover and survey. To minimize this risk one can apply the use of modern-day technology of robotics. By sending in a ground moving robot that scans the subterranean areas and then relays the scanned data back to a central station, it would allow workers to more safely traverse these previously unknown areas.
-This is the base for the project, and the goal is to develop software that can be applied to existing ground moving robots. This software should allow the robots to collaborate and map unknown areas such as caves and tunnels. The team assigned to the project consisted of seven students from the Luleå University of Technology. Each student with a background in Computer Science, Electrical Engineering and Control theory. The project lasted for a span of 20 weeks, with weekly progress updates and meetings scheduled.
+    Unknown subterranean areas can be dangerous for humans to discover and survey. To minimize the dangers of an underground exploration project one can employ state of the art robotics. A central problem in underground exploration is the fact that navigating by satnav is, at best, unreliable. Simultaneous localization and mapping<sup>[1]</sup> (SLAM) aims to solve this problem by localizing an autonomous robot while building a map that is consistent with the environment. By deploying multiple robots, a map can be constructed in a more time-efficient manner. Multiple robots can explore an area more efficiently by sharing their knowledge.
+    This paper describes a SLAM based underground navigation, map merging using Hough peak matching<sup>[2]</sup>, a local navigation controller for ensuring optimal wall distance and integration of a camera in a simulated environment. Further improvements are also expanded upon.
+    The team assigned to this project consisted of seven students from the Luleå University of Technology. Each student had a background in computer science or electrical engineering and control theory. The project was carried out over a span of 20 weeks. Weekly progress updates were presented for the students partaking in the course and group meetings were scheduled twice per week.
 </p>
 
 ## Provided Hardware and Software
@@ -19,7 +20,7 @@ On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor
 
 ### The ROS Framework
 <p>
-    The Robot Operating System<sup>[?]</sup> (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and simultaneous localization and mapping<sup>[?]</sup> (SLAM). These two features were used extensively within the project.
+    The Robot Operating System<sup>[?]</sup> (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and SLAM. These two features were used extensively within the project.
 ROS also provides tools for simulation and visualization. These tools were used in debugging the application and test if the desired behaviour had been reached before the application was deployed into a real-world scenario for further benchmarking.
 A ROS application is made up of several nodes in a network called a ROS graph, where each node is a process that performs computation. Nodes are meant to operate on a very granular scale and a ROS application will, therefore, comprise of many nodes. In the case with the TB3B, there is, for example, one node controlling the LiDAR, one controlling the motors to the wheels and one node performing localization.
 Nodes communicate with each other by publishing messages to topics which are then subscribed to by other nodes. A message can contain a range of different data types. Standard primitive types are supported as are arrays of them.
