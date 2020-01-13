@@ -287,7 +287,6 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 
 ### Merging the maps
 <p>
-The images are laid out in such a way that the first map will be the top image and the second map will be the image below when they are presented at the same time.
 	The two maps we receive from the map saver:
   
   |  ![Map 1)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map.png?raw=true) |  ![Map 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map2.png?raw=true)
