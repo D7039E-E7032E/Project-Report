@@ -1,13 +1,13 @@
 # Collaborative mapping of unknown environments
 
-## 1.0 Introduction 
+## 1 Introduction 
 <p>
     Unknown subterranean areas can be dangerous for humans to discover and survey. To minimize the dangers of an underground exploration project one can employ state of the art robotics. A central problem in underground exploration is the fact that navigating by satnav is, at best, unreliable. Simultaneous localization and mapping<sup>[1]</sup> (SLAM) aims to solve this problem by localizing an autonomous robot while building a map that is consistent with the environment. By deploying multiple robots, a map can be constructed in a more time-efficient manner. Multiple robots can explore an area more efficiently by sharing their knowledge.
     This paper describes a SLAM based underground navigation, map merging using Hough peak matching<sup>[2]</sup>, a local navigation controller for ensuring optimal wall distance and integration of a camera in a simulated environment. Further improvements are also expanded upon.
     The team assigned to this project consisted of seven students from the Luleå University of Technology. Each student had a background in computer science or electrical engineering and control theory. The project was carried out over a span of 20 weeks. Weekly progress updates were presented for the students partaking in the course and group meetings were scheduled twice per week.
 </p>
 
-## 2.0 Provided Hardware and Software
+## 2 Provided Hardware and Software
 
 ### 2.1 The Turtlebot
 <p>
@@ -60,7 +60,7 @@ Thus each pixel in the Image Space represents a sinusoid line in Hough Space. Wh
 *Y=-(cos(θ)/sin(θ))X+(⍴/sin(θ))* 
 
 
-## 3.0 Method
+## 3 Method
 
 ### 3.1 System design
 <p>
@@ -238,7 +238,7 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 The turtlebot and the central station both connect to a separate wifi network. Turtlenet is a wireless network setup to allow communication between the central station and robot. This network is propagated by a wireless router supplied by the control group at LTU. The wifi network already available at LTU could not be used due to limited access available to students, data could not be transferred from one point to another. In turn, this blocks the usage of wifi access points located in the testing area. When the robot is running it will, therefore, be limited in the travel range. 
 </p>
 
-## 4.0 Results
+## 4 Results
 
 ### 4.1 Simulation
 |    The camera added to TB3B (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
@@ -272,7 +272,7 @@ The turtlebot and the central station both connect to a separate wifi network. T
 The robot has very good performance navigating unknown environments. The only problem was that the Local Navigator had some difficulties with rooms with a lot of furniture such as chairs and tables. The problem was that the controller could easily get confused and stuck in such environments. This is not considered an issue as it's not the environment that the robot is intended to work in.
 </p>
 
-## 5.0 Discussion
+## 5 Discussion
 
 <p>
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
@@ -282,7 +282,7 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 <p>
   Gazebo publishes an odometry frame. This was less than ideal for the purpose of testing SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
 
-## 6.0 Results
+## 6 Results
 
 ### 6.1 Merging the maps
 <p>
