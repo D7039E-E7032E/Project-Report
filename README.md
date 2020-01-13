@@ -19,28 +19,13 @@ On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor
 
 ### The ROS Framework
 <p>
-The Robot Operating System (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount functionality one could desire from a robot e.g. navigation and simultaneous localization and mapping (SLAM). These two features were used extensively within the project.
-ROS also provides tools for simulation and visualization. These tools were used to debug the application and test if desired behaviour had been reached before the application was deployed into a real world scenario for further benchmarking.
-</p>
-
-<p>
-A ROS application is made up of several nodes in a network called a ROS graph where each node is a process that performs computation. Nodes are meant to operate on a very granular scale and a ROS application will therefore comprise of many nodes. In the case with the TB3B there is for example one node controlling the LIDAR, one controlling the motors to the wheels and one node performing localization.
-</p>
-
-<p>
+The Robot Operating System (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and simultaneous localization and mapping (SLAM). These two features were used extensively within the project.
+ROS also provides tools for simulation and visualization. These tools were used in debugging the application and test if the desired behaviour had been reached before the application was deployed into a real-world scenario for further benchmarking.
+A ROS application is made up of several nodes in a network called a ROS graph, where each node is a process that performs computation. Nodes are meant to operate on a very granular scale and a ROS application will, therefore, comprise of many nodes. In the case with the TB3B, there is, for example, one node controlling the LiDAR, one controlling the motors to the wheels and one node performing localization.
 Nodes communicate with each other by publishing messages to topics which are then subscribed to by other nodes. A message can contain a range of different data types. Standard primitive types are supported as are arrays of them.
-</p>
-
-<p>
-Messages also come in the form of service calls where a node sends a request message to a node in order to recieve a reply in the form of a response message.
-</p>
-
-<p>
-Topics are named buses which nodes send messages over. Topics generate messages even if there is no subscriber. Nodes do not know who they are communicating with, it works on the same principle as FM radio where the interested will tune themselves to the continous broadcast to find the information they are interested in.
-</p>
-
-<p>
-This model is however not appropriate for request and reply interactions between nodes. This is therefore done with another concept called a service. These can often be treated as if they wre remote procedure calls.
+Messages also come in the form of service calls where a node sends a request message to a node to receive a reply in the form of a response message.
+Topics are named buses which nodes send messages over. Topics generate messages even if there is no subscriber. Nodes do not know who they are communicating with, it works on the same principle as FM radio where the interested will tune themselves to the continuous broadcast to find the information they are interested in.
+This model is however not appropriate for request and reply interactions between nodes. A concept known as a service is used to solve this problem. These can often be treated as if they were remote procedure calls.
 </p>
 
 ### Cartographer
@@ -50,10 +35,29 @@ The Cartographer system is derived from Google’s repository in GitHub where th
 
 <p>
 Cartographer is an algorithm used to get a representation of the local environment given useful sensor data. For localization and mapping of the local environment, SLAM solving is the main reason to use Cartographer. It contains two SLAMs, a local SLAM, and a global SLAM. The local SLAM's function is to generate approved submaps with correct scans (range data) and the global SLAM combines all submaps and creates a global map. The Global map can then be used to visually represent the environment.
-
-The usefulness of this system is in the quality of representing the environment, high-resolution maps can be easily created with this system. Cartographer itself creates a compressed file (pbstream) as an output. The file only contains what Cartographer claims to be useful sensor data. Then when recombined with the full sensor data file (bag) creating a high-resolution map. Although it is in the interest of the project to combine multiple maps from multiple robots into one map, there was no clear way to do that with the system. Instead, the output file in interest became a portable grey map (PGM file). For Cartographer to work with the rest of the parts, necessary tuning on the system’s parameters had to be done to work with the turtlebot3.  
-
 </p>
+
+<p>
+The usefulness of this system is in the quality of representing the environment, high-resolution maps can be easily created with this system. Cartographer itself creates a compressed file (pbstream) as an output. The file only contains what Cartographer claims to be useful sensor data. Then when recombined with the full sensor data file (bag) creating a high-resolution map. Although it is in the interest of the project to combine multiple maps from multiple robots into one map, there was no clear way to do that with the system. Instead, the output file in interest became a portable grey map (PGM file). For Cartographer to work with the rest of the parts, necessary tuning on the system’s parameters had to be done to work with the turtlebot3.  
+</p>
+
+### Detecting walls in image
+<p>
+There are several steps to do when it comes to detecting lines in an image. For starters, only the necessary data such as the edges on the map representing the walls was wanted. The research paper (source) used the Canny Edge Detection approach to detect the edges in an image. Canny Edge Detection is a multi-step algorithm where the goal is to create a binary representation of the image where ones are walls and zeros are everything else. First, it’s using gaussian blur as filtering out noises before running what is known as Sobel edge detection. This ensures that much of the unwanted edges are removed. From here threshold and hysteresis are applied to result in the binary image with only the edges left.
+</p>
+
+<p>
+When the newly created image with Canny Edge is done, Hough Transform was the next step. Hough Transform takes advantage of mapping each pixel coordinates to a corresponding line in Hough Space. Since each pixel has a fixed known X and Y coordinate value which can be transformed into a polar coordinate with ⍴ and θ as the axis.
+</p>
+
+*⍴=Xcos(θ)+Ysin(θ)*
+
+<p>
+Thus each pixel in the Image Space represents a sinusoid line in Hough Space. When multiple pixels gets a representation in Hough Space there will be a bunch of intersection points with same ⍴ and θ in Hough Space where the lines meet. These intersection points in Hough Space mapped back to the Image Space gives the most common lines in the image. By here the walls have been detected given the ⍴ and θ values to Image Space. 
+</p>
+
+*Y=-(cos(θ)/sin(θ))X+(⍴/sin(θ))* 
+
 
 ## Method
 
@@ -79,28 +83,22 @@ The idea will be to use a [linear controller](https://github.com/D7039E-E7032E/P
 
 ### The simulator
 <p>
-The software that will visualize what the robot experiences is RViz. This software will also be chosen because of its tight integration with the ROS framework.
-A TB3B will be simulated using the simulation software Gazebo. The reason this software will be chosen is because it is tightly integrated with the ROS framework.
+The software Rviz [?] is a 3D visualizer created for the ROS framework. It was used to visualize published information from the robot and also used in a later stage to issue commands to the robot for navigation purposes. The software was chosen because of its tight integration with the ROS framework and ease of use.
+The TB3B and the world it was navigating was simulated using the software Gazebo [?]. Gazebo is unlike Rviz, not developed solely for use within ROS. A set of interfaces is therefore provided with ROS for ROS-like communication with Gazebo using messages, services and still allowing for dynamic reconfigure. This made Gazebo the obvious choice for the simulation of the TB3B and its interaction with the simulated world.
 </p>
 
 <p>
-The software Rviz will make use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B will be used to describe the robot and its capabilities to Rviz. A camera will be added to the robot and therefore a camera will have to be added to the URDF describing the robot. URDF files will be written in XML but by using the macro language xacro. This will make the URDF files easier to maintain and to read. URDF can be visualized using the URDF package that exists within ROS. This could prove useful to ensure the camera is connected to the body of the robot.
-</p>
-
-<p>
-The software Gazebo made use of a file format called Simulation Description Format (SDF). SDF was developed to solve the shortcomings of URDF. SDF specifies additional properties such as friction, lights, heightmaps etc. Another improvement that SDF has is that it does not break proper formatting with heavy use of XML attributes and is thus more flexible in its implementation. 
+Rviz makes use of a file format called Universal Robotic Description Format (URDF). A URDF file describing the TB3B was used to describe the robot and its capabilities to Rviz. A camera was to be added to the real world robot and therefore a camera had to be added to the URDF describing the simulated robot. The camera was however never added to the real world robot. URDF files are written in XML by using the macro language xacro. This made the URDF files easier to maintain and to read.
+The software Gazebo makes use of a file format called Simulation Description Format (SDF). SDF was developed to solve the shortcomings of URDF. SDF specifies additional properties such as friction, lights, height maps etc. Another improvement that SDF has is that it does not break proper formatting with heavy use of XML attributes and is thus more flexible in its implementation. 
 It is possible to convert URDF into SDF. This allows a URDF file be used with Gazebo after it has been converted to SDF. This process was carried out automatically.
 </p>
 
 <p>
-ROS makes use of topics to send messages from a publisher to a subscriber. Gazebo published simulation messages which were computed within the ROS framework and then published to RViz for visualization.
-The first tests were carried out by following the tutorials available for the the TB3B.
+ROS makes use of topics to send messages from a publisher to a subscriber. Gazebo published simulation messages which were computed within the ROS framework and then published to Rviz for visualization.
+The first tests were carried out by following the tutorials available for the TB3B.
 The goal was first to make sure that the camera had been implemented correctly and thus Rviz was made to only visualize the camera feed.
 The script that described what to visualize was extended significantly as the project went on.
-</p>
-
-<p>
-By using Rviz, a 2D goal point was successfully published to the TB3B and all relevant topics were recieved correctly.
+By using Rviz, a 2D goal point was successfully published to the TB3B and all relevant topics were received correctly.
 By following the earlier mentioned tutorials for the TB3B it became possible to navigate on a known map in a simulated world with the modified TB3B model.
 </p>
 
@@ -116,15 +114,76 @@ The Cartographer ROS node            |  The Navigation Stack
 
 
 <p>
-The navigation system comprised SLAM provided by the Cartographer online node and a library of navigation packages known as the ROS Navigation Stack [2]. The submap list of Cartographer was sent as map data into the stack and then globally and locally planned upon. The local planner that was used in the first tests was the default Dynamic Window Approach Planner (DWAP) but later in the project, a new local planner was innovated and implemented into the ROS Navigation Stack.
+The navigation system comprised SLAM provided by the Cartographer online node and a library of navigation packages known as the ROS Navigation Stack [?]. The submap list of Cartographer was sent as map data into the stack and then globally and locally planned upon. The local planner that was used in the first tests was the default Dynamic Window Approach Planner (DWAP) but later in the project, a new local planner was innovated and implemented into the ROS Navigation Stack.
 The global plan was generated by the default global planner known simply as global_planner.
 </p>
 
+### Control
+
+The robot needs to be able to navigate unknown environments, a robust and reliable control system is needed to achieve this.
+
+![](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Control_Str.svg)
+
+In the illustration above the structure of the control system an its supporting components. 
+
+#### Global Navigator
+
+The purpose of the global navigator is to find a path the robot should follow to reach its goal. The the goal points are set manually and when the robot reaches it, a new one will be chosen by the operator. It will use information from the global map, a map of the combined scans from all robots. This was implemented using the already existing ROS package move_base that calculates a global path for the robot using Dynamic Window Approach Planner algorithm. 
+
+The Global Navigator uses maps generated from cartographer, which is a slow process, combined with A-star not being a particular fast algorithm. This makes the Global Navigator a rather slow. This is solved with a Local Navigator.
+
+#### Local Navigator
+
+The Local Navigator's purpose is to avoid obstacles and keeping an optimal distance to walls, this to give optimal scanning quality. It will follow the direction of the path given by the Global Navigator.
+
+![Force](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Force.svg)
+
+A custom ROS node was implemented to solve this. The node operates by giving all point seen by the lidar a virtual force, see equation above, which when combined creates an heat map. The node then solves the gradient of the heat map in the position of the robot, as in equation below. The value of *l<sub>p</sub>* is the distance to the point, and the values *c* and *n* is tuning-parameters, which was tuned manually. The resulting vector will then point in a direction away from all obstacles.
+
+![Grad](https://github.com/D7039E-E7032E/Project-Report/blob/Controll-delen-till-rapport/images/Grad.svg)
+
+Finely the gradient vector is combined with a directional vector which is the direction that the path is currently pointing. The resulting vector, if followed will take the robot toward its goal while avoiding obstacles and keep an equal distance to the walls on both sides.
+
+#### Path Follower
+
+The Path Follower is a controller that control the speed of the robots actuators.
+
+It follows the direction given by the Local Navigator such that the point P in the figure below, is always facing the correct direction. The control system will achieve this by changing speed relation between the wheels on the robot, making it turn.
+
+<figure>
+    <img src="https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/RobotRouteFolowC.svg">
+
+
+</figure>
+
+##### System 
+
+To simplify the system, some assumptions were made. Because the robot is equipped with strong motors and wheels with a good grip, the assumption was made that the robot will not lose it's grip. The system is also assumed to have a near perfect step response. With these assumptions the system will be static, only changing when moved by actuator.
+
+![systeI](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/systeI.svg) 
+
+By making the final assumption that the target point T, in the figure above, is stationary then we can introduce a new variable d as in equation below.
+
+![Asume](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/Asume.svg) 
+
+Then the system can be represented in a state space model seen in equation below, where Wmax is the maximum rotation speed of the robot.
+
+![system](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/system.svg) 
+
+##### Control rule
+
+Because the system is of first order, by using the assumptions from the previous section, the optimal controller will be a P controller, as seen in equation below.
+
+![rule](https://github.com/D7039E-E7032E/Project-Report/blob/fc1c1424542d7d816bf94292356d8a6f613ad361/controlrool.svg) 
+
+The variable p, in equation above, was chosen in simulations for optimal performance.
+
+
+
+
 ### Central station
 <p>
-In this case, Central station is the ROS master. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrieve parameters from nodes. These parameters are XMLRPC data types which are XML equivalents of common data types.
-
-  
+Central station's purpose is to control and communicate with the TB3Bs. From the central station, all packages are runned through the scripts which contains the essential ROS commands. Also the ROS master node is started through ROS command roscore at central station. Its role is to look over the other active nodes and help them locate each other. ROS master also comes with a parameter server which will store and retrieve parameters from nodes. These parameters are XMLRPC data types which are XML equivalents of common data types.
 </p>
 
 ### Communication
@@ -157,13 +216,57 @@ The robot is running the Linux operating system ubuntu MATE. The central station
 </p>
 
 ## Results
+
+### Simulation
+|    The camera added to TB3 (Grey cube).       |    The transform frame tree. Note that the odometry is provided by Gazebo.
+|:---------------------------------------------:|:---------------------------------------------------------------------------:
+|  ![The camera added to TB3](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/default_gzclient_camera(1)-2019-10-07T09_31_48.707295.jpg) |  ![The transform frame tree](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/frames_one_turtlebot3.png)
+
+<p>
+  The camera was successfully added to the already provided TB3 URDF and functioned as a real-world camera would have. No mesh data was created to simulate the visual appearance of the camera. The simulated TB3 and the added camera is shown in figure .. . The camera is displayed as a grey cube. The output from the camera mounted to the TB3 model in the simulated environment can be seen in figure .. . The camera was not integrated into the real world system as it was discovered that it would not be used by the software in any meaningful way.
+  Figure .. shows the TF tree that was used during the simulations. The odometry frame that was published from Gazebo was used instead of the odometry frame that is provided by Cartographer to remove transform re-parenting errors.
+  Multiple TB3 with the developed software solution were simulated. These simulations were mostly unsuccessful as there were a multitude of problems with transforms being incorrectly interpreted by Gazebo, e.g. multiple TB3 sharing the same virtual space in the simulated environment. 
+</p>
+
+|    The Turtle World       |    The House World
+|:-------------------------:|:-------------------------:
+|  ![Ortographic view of the turtle world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_one_turtlebot3_turtle_world.jpg) |  ![Ortographic view of the house world](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/gazebo_multi_turtlebot3_house_world.jpg)
+
+<p>
+  The two worlds that were used were the house world and the turtle world. they are displayed orthographically in figure .. . The turtle world was chosen for its simplicity and the house world was chosen because it was a more complex environment. A world that simulated the environment that the TB3 would eventually explore was not used as there was no world such as this already provided. It was decided that this was uneccesary workload as there are real world environments at the university campus that satisfies our requirements.
+</p>
+
+### Navigation
+|   The ROS-graph used for navigating. | Screenshot of viewport in Rviz.  |  Captured frame of the camera feed.
+|:------------------------------------:|:--------------------------------:|:-----------------------------------:
+|![The Naivigation Solution](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rosgraph_one_turtlebot3.png)  | ![Screenshot of viewport in Rviz.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/rviz_one_turtlebot3.png)  | ![Captured frame of the camera feed.](https://github.com/D7039E-E7032E/Project-Report/blob/master/images/camera_one_turtlebot3.png)
+
+<p>
+  Cartographer was successfully implemented on the TB3 platform and the output of the online node was satisfyingly processed by the navigation stack. The local navigator that was created to ensure optimal distance from walls was tested in a real-world environment but the complete solution was only deployed in a simulated environment.
+</p>
+
 <p>
 The robot has very good performance navigating unknown environments. The only problem was that the Local Navigator had some difficulties with rooms with a lot of furniture such as chairs and tables. The problem was that the controller could easily get confused and stuck in such environments. This is not considered an issue as it's not the environment that the robot is intended to work in.
 </p>
 
 ## Discussion
+
 <p>
 As Cartographer is an approach to this dilemma, different approaches such as the Hector SLAM approach and Gmapping SLAM could have been tested. Due to the amount of time consumed to get to understand, implement and tune Cartographer, there would be insufficient time to do the rest. 
+</p>
+
+### Simulation
+<p>
+  Gazebo publishes an odometry frame. This was less than ideal for the purpose of testing SLAM algorithms in a realistic manner as the SLAM should solve this problem. It proved very difficult to disable the odometry frame from being published. Remapping the frame published from Cartographer also showed to have less than ideal results as nodes would not connect as they were expected to. The reason for this was not found. 
+</p>
+
+### Navigation
+<p>
+  Since Gazebo publishes an odometry source, the Cartographer odometry frame had to be blocked from being published. Doing otherwise resulted in errors with transforms. If the TB3 would be deployed in the real world, the Cartographer odometry frame could have been used in conjunction with an IMU frame to locate the TB3 as the odometry frame from Gazebo would not be present. How this would affect performance is not certain as no real world tests were carried out with the the complete solution.
+</p>
+
+<p>
+  The assumption was that the TB3 would navigate a completely flat 2D environment. This is of course not possible in the real world. For this reason, there might be performance issues with the solution in a real-world scenario. Ramp-like surfaces may lead to distortion in the mapping. No further investigation was put into the topic. Noise in sensor readings from the LiDAR may cause problems in a real-world scenario when executing SLAM. Cartographer has built-in filtering but no work was put into tuning the algorithm for it to reach its best performance. No testing was carried out to check whether the on-board IMU was sufficient enough for navigation purposes in the real world.
 </p>
 
 ### Difficulties during the project
@@ -219,10 +322,24 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
   All the meeting protocols can be found<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Meeting-protocols"> here</a>.
 </p>
 
-## Links
+## References
 <p>
-  <a href="https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html">Cartographer</a>
+  [?] <a href="https://github.com/ros-visualization/rviz"> Rviz</a>
 </p>
+<p>
+  [?] <a href="http://gazebosim.org/"> Gazebo</a>
+</p>
+<p>
+  [?] <a href="https://github.com/ros-planning/navigation"> ROS Navigation Stack</a>
+</p>
+<p>
+ [?] Ibid.
+</p>
+<p>
+  [car] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
+  Obtained: 10/09/2019
+</p>
+
 <p>
 <a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
 </p>
@@ -230,22 +347,4 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 <a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
 </p>
 
-<p>
-    [?] <a href="https://www.semanticscholar.org/paper/The-Multi-Armed-Bandit-Problem%3A-Decomposition-and-Katehakis-Veinott/e4fe28113fed71999a0db30a930e0b42d3ce55f1?tab=abstract&citingPapersSort=is-influential&citingPapersLimit=10&citingPapersOffset=0&citationIntent=background&year%5B0%5D=0&year%5B1%5D=0&citedPapersSort=is-influential&citedPapersLimit=10&citedPapersOffset=0">Katehakis, Michael N. and Arthur F. Veinott. “The Multi-Armed Bandit Problem: Decomposition and Computation.” Math. Oper. Res. 12 (1987): 262-268.</a>
-</p>
 
-<p>
-    [?] <a href="https://www.microsoft.com/en-us/research/uploads/prod/2016/12/The-Byzantine-Generals-Problem.pdf">Leslie Lamport Robert Shosta k Marshall Pease “The Byzantine Generals Problem .” ACM Transactions on Programming Languages and Systems (July 1982): 382-401.</a>
-</p>
-
-<p>
-    [?] <a href="www.solutil.ch/kirrmann/FaultTolerance/20050418_HK_FT_Tutorial.pdf">Kirrmann, Hubert (n.d.). “Fault Tolerant Computing in Industrial Automation.” Switzerland: ABB Research Center. p. 94. </a>
-</p>
-
-<p>
-    [?] <a ref="https://www.mdpi.com/2076-3417/9/8/1702/htm">Cardona, Gustavo A.; Calderon, Juan M. 2019. "Robot Swarm Navigation and Victim Detection Using Rendezvous Consensus in Search and Rescue Operations." Appl. Sci. 9, no. 8: 1702. </a>
-</p>
-
-<p>
-    [?] <a ref="www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub">“Research Advance in Swarm Robotics.” Defence Technology 9, no. 1 (March 2013): 18–39. https://www.sciencedirect.com/science/article/pii/S221491471300024X?via=ihub.<a>
-</p>
