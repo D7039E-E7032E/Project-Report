@@ -288,7 +288,16 @@ As it stands the robot will not function automatically in our test environment. 
 </p>
 
 <p>
-Currently the robots explored by trying to reach a point, set manually. An improvement would be to implement an algorithm that automate this process, such that the robot will have some form of curiosity. Another improvement would be to have the robots be able to communicate with each other to ensure that the area is explored as efficiently as possible.
+Currently the robots explored by trying to reach a point, set manually. An improvement would be to implement an algorithm that automate this process. The topic of automation opens up for many interesting problems. One such problem is the multi-armed bandit problem<sup>[?]</sup>. The TB3 would have to compute which goal pose would result in the biggest benefit. Machine learning could possibly provide solutions to this problem by recognizing patterns.
+</p>
+
+<p>
+In the scenario where multiple TB3 robots are deployed, some form of swarm navigation would have to be performed, (YingTan & Zhong-yangZheng, 2013, p. 26-27) describes some concepts of robotic swarms that could become useful when designing such a system.
+</p>
+
+<p>
+Another improvement would be to have the robots be able to communicate with each other to ensure that the area is explored as efficiently as possible. An interesting question would be, which TB3 should be trusted to be correct? A Byzantine genrals problem<sup>[?]</sup> might occur if one or more of the TB3 robots provides the rest with faulty data. Some form of voting on which data to use would have to be carried out to not decrease the quality of the final result due to inconsistent information<sup>[?]</sup>. Additionally, some form of system to determine how trustworthy a robot is has to be implemented to ensure that the faulty robots do not pass bad data in the voting procedure.
+In subterrainean environments there is also a challenge of wether to keep the robots close to each other and risk that they have to explore the same space, which would be inefficient, or to spread them out and risk that robots choose inefficient routes because they were unable to recieve information of better routes.
 </p>
 
 # Appendices
