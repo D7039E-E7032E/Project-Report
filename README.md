@@ -19,7 +19,7 @@ On the final top layer were the eyes of the robot, a 360° Laser Distance Sensor
 
 ### The ROS Framework
 <p>
-The Robot Operating System (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and simultaneous localization and mapping (SLAM). These two features were used extensively within the project.
+    The Robot Operating System<sup>[?]</sup> (ROS) is a set of software packages and tools that help out with the creation of robotic applications. ROS provides libraries that support a vast amount of functionality one could desire from a robot e.g. navigation and simultaneous localization and mapping<sup>[?]</sup> (SLAM). These two features were used extensively within the project.
 ROS also provides tools for simulation and visualization. These tools were used in debugging the application and test if the desired behaviour had been reached before the application was deployed into a real-world scenario for further benchmarking.
 A ROS application is made up of several nodes in a network called a ROS graph, where each node is a process that performs computation. Nodes are meant to operate on a very granular scale and a ROS application will, therefore, comprise of many nodes. In the case with the TB3B, there is, for example, one node controlling the LiDAR, one controlling the motors to the wheels and one node performing localization.
 Nodes communicate with each other by publishing messages to topics which are then subscribed to by other nodes. A message can contain a range of different data types. Standard primitive types are supported as are arrays of them.
@@ -328,27 +328,40 @@ To build the entire system the plan at the moment is to use Jenkins, this is an 
 
 ## References
 <p>
-  [?] <a href="https://github.com/ros-visualization/rviz"> Rviz</a>
+    [?] <a href="https://www.researchgate.net/publication/221063565_Multiple-Robot_Simultaneous_Localization_and_Mapping_A_Review">Saeedi, Sajad & Paull, Liam & Trentini, Michael & Li, Howard. (2011). Multiple-Robot Simultaneous Localization and Mapping: A Review. Journal of Field Robotics. 33. 853-858. 10.1109/IROS.2011.6048299.</a>
 </p>
+
 <p>
-  [?] <a href="http://gazebosim.org/"> Gazebo</a>
+    [?] <a href="https://www.ros.org/about-ros/">Open Robotics. “About ROS.” https://www.ros.org/about-ros/ (accessed January 13, 2020).</a>
 </p>
+
 <p>
-  [?] <a href="https://github.com/ros-planning/navigation"> ROS Navigation Stack</a>
+    [?] <a href="https://github.com/ros-visualization/rviz">Rviz</a>
 </p>
+
 <p>
- [?] Ibid.
+    [?] <a href="http://gazebosim.org/">Gazebo</a>
 </p>
+
 <p>
-  [car] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
+    [?] <a href="https://github.com/ros-planning/navigation">ROS Navigation Stack</a>
+</p>
+
+<p>
+    [?] Ibid.
+</p>
+
+<p>
+    [?] Cartographer ROS. Algorithm walkthrough for tuning. https://google-cartographer-ros.readthedocs.io/en/latest/algo_walkthrough.html 
   Obtained: 10/09/2019
 </p>
 
 <p>
-<a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
+    [?] <a href="https://github.com/D7039E-E7032E/Project-Report/wiki/Path-following-control">Path following control</a><br/>
 </p>
+
 <p>
-<a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
+    [?] <a href="https://developers.google.com/protocol-buffers/">Protocol buffer</a><br/>
 </p>
 
 <p>
