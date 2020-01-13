@@ -288,60 +288,71 @@ As Cartographer is an approach to this dilemma, different approaches such as the
 ### Merging the maps
 <p>
 The images are laid out in such a way that the first map will be the top image and the second map will be the image below when they are presented at the same time.
-	The two maps we receive from the map saver, Image 1 and Image 2:
+	The two maps we receive from the map saver:
   
-  ![Map 1)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map.png?raw=true)
-  
-  ![Map 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map2.png?raw=true)
-  
-  ---
-  The two maps run through the extender, Image 3 and Image 4:
-  
-  ![Map 1 Extended)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend.png?raw=true)
-  
-  ![Map 2 Extended](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend2.png?raw=true)
+  |  ![Map 1)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map.png?raw=true) |  ![Map 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/map2.png?raw=true)
+  |:---------------------------------------------:|:---------------------------------------------------------------------------:
+  |Image 1 |  Image 2
   
   ---
-  The two maps after the canny edge detection has been run, Image 5 and Image 6:
+  The two maps run through the extender:
+  
+  |  ![Map 1 Extended)](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend.png?raw=true) |  ![Map 2 Extended](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/extend2.png?raw=true)
+  |:---------------------------------------------:|:---------------------------------------------------------------------------:
+  |Image 3 | Image 4
+  
+  ---
+  The two maps after the canny edge detection has been run:
 
-  ![Map 1 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesH.png?raw=true)
-  
-  ![Map 2 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edges2H.png?raw=true)
-  
-  ---
-  The resulting hough images, Image 7 and Image 8:
-  
-  ![Map 1 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho.png?raw=true)
-  
-  ![Map 2 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho2.png?raw=true)
+  |  ![Map 1 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesH.png?raw=true) |  ![Map 2 Edge Detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edges2H.png?raw=true)
+  |:---------------------------------------------:|:---------------------------------------------------------------------------:
+  | Image 5 | Image 6
   
   ---
-  The maximum intensities over the theta of the hough images, Image 9 and Image 10:
+  The resulting hough images:
   
-  ![Map 1 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax.png?raw=true)
-  
-  ![Map 2 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax2.png?raw=true)
-  
-  ---
-  The result of the periodic cross-correlation (and of note is that the minimum value on the graph is 41040527 and the maximum value is 42441750), Image 11. The following two images are the given rotational hypotheses, Image 12 and Image 13:
-  
-  ![Map Max Correlation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/maxCorr.png?raw=true)
-  
-  ![Map 2 rotation hypothesis 1](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_-31_degrees.png?raw=true)
-  
-  ![Map 2 rotation hypothesis 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_58_degrees.png?raw=true)
+  |  ![Map 1 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho.png?raw=true) |  ![Map 2 Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/ho2.png?raw=true)
+  |:---------------------------------------------:|:---------------------------------------------------------------------------:
+  | Image 7 | Image 8
   
   ---
-  The following image is the chosen one by the algorithm after it has been run through the preprocessing until after the Canny edge detection, Image 14:
+  The maximum intensities over the theta of the hough images:
   
-  ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesR.png?raw=true)
+  |  ![Map 1 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax.png?raw=true) 
+  |:---------------------------------------------:
+  | Image 9
+  
+  |  ![Map 2 Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmax2.png?raw=true)
+  |:---------------------------------------------:
+  | Image 10
   
   ---
-  The next image is the hough space and the result from running the max function over the columns, Image 15 and Image 16:
+  The result of the periodic cross-correlation (and of note is that the minimum value on the graph is 41040527 and the maximum value is 42441750). 
   
-  ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/hoR.png?raw=true)
+  |  ![Map Max Correlation](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/maxCorr.png?raw=true)
+  |:---------------------------------------------:
+  | Image 11
   
-  ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmaxR.png?raw=true)
+  ---
+  The following two images are the given rotational hypotheses:
+  
+  | ![Map 2 rotation hypothesis 1](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_-31_degrees.png?raw=true) |  ![Map 2 rotation hypothesis 2](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/rotated_58_degrees.png?raw=true)
+  |:---------------------------------------------:|:---------------------------------------------------------------------------:
+  | Image 12 | Image 13
+  
+  ---
+  The following image is the chosen one by the algorithm after it has been run through the preprocessing until after the Canny edge detection:
+  
+  | ![Rotated Map edge detection](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/edgesR.png?raw=true)
+  |:---------------------------------------------:
+  | Image 14
+  
+  ---
+  The next image is the hough space and the result from running the max function over the columns:
+  
+  |  ![Rotated Map Hough Space](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/hoR.png?raw=true) |  ![Rotated Map Max](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/tIFmaxR.png?raw=true)
+  |:---------------------------------------------:|:---------------------------------------------------------------------------:
+  | Image 15 | Image 16
   
   ---
   The calculated translation matrix:
@@ -351,7 +362,9 @@ The images are laid out in such a way that the first map will be the top image a
   ---
   This is the combined maps after the translation is applied:
   
-  ![Merged Map](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/merged.png?raw=true)
+  |  ![Merged Map](https://github.com/D7039E-E7032E/Project-Report/blob/BaseStation_addition/images/merged.png?raw=true)
+  |:---------------------------------------------:
+  | Image 17
 
 >>>>>>> Added all images
 </p>
